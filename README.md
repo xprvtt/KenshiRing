@@ -2,16 +2,19 @@
 
 A mod that adds new sections and various buffs and debuffs.
 
-Inspired by the ["Extra Inventory Sections"](https://www.nexusmods.com/kenshi/mods/1838) mod, this is a fork of it, featuring a complete overhaul. 
+Inspired by the ["Extra Inventory Sections"](https://www.nexusmods.com/kenshi/mods/1838) mod, this is a fork of it, featuring a complete overhaul. With the addition of effects for clothing items
 
 Thanks to [BFrizzleFoShizzle](https://github.com/BFrizzleFoShizzle) for the opportunity to create mods like this.
-Thanks to [Genpretz](https://github.com/Genpretz). Using his project, I created my own completely reworked fork.
+Thanks to [Genpretz](https://github.com/Genpretz). Using his project with the new sections, I created my own.
 
 ### Usage Requirements
   1. [RE_Kenshi v0.3.4 or Later](https://www.nexusmods.com/kenshi/mods/847)
-     
+### disclaimer
 This project is not affiliated with or supported by Lo-Fi Games. Kenshi is the property of its respective rights holders.
 
+The program is provided "as is".
+
+### Description
 <details>
   <summary>Description rus</summary>
   Мод который добавляет предметам бафы и дебафы, а так же новые слоты
@@ -23,7 +26,6 @@ This project is not affiliated with or supported by Lo-Fi Games. Kenshi is the p
 # БЛИЖНИЙ БОЙ<br/>
 
 # атака<br/>
-
 
 #Vampir <br/>
 при успешном ударе ближним оружием вы восстановите немного здоровья, но не больше максимального<br/>
@@ -140,9 +142,7 @@ This project is not affiliated with or supported by Lo-Fi Games. Kenshi is the p
 Вы - слишком буйный пациент, невзначай вы раните того, кто вам помогает и восстанавливаете здоровье себе гораздо быстрее, даже сверх максимального<br/>
 свойства <шанс сработать - усиление восстановления здоровья><br/>
 
---- <br/>
 # Дальний бой, защита<br/>
---- <br/>
 
 #Bulletproof<br/>
 Вы становитесь пуленепробиваемым, снаряды щекочат вас, восстанавливаете здоровье, когда по вам попадают<br/>
@@ -180,9 +180,6 @@ This project is not affiliated with or supported by Lo-Fi Games. Kenshi is the p
 #SurgeonDream<br/>
 Ваши выстрелы заставляют противника, покинуть сражение, так, как сделал бы это хирург<br/>
 свойства <шанс сработать - NONE><br/>
-100 -> +1<br/>
-150 -> +2<br/>
-200 -> +3<br/>
 
 #AnnihilatingShot<br/>
 Любое существо по которому вы попадете анигилирует<br/>
@@ -219,3 +216,11 @@ This project is not affiliated with or supported by Lo-Fi Games. Kenshi is the p
 ### Preparation
 1. [Perform all preparatory actions](https://github.com/weisspure/re_kenshi-working-solution/blob/main/README.md)
 2. Change the output file directory
+<details>
+  <summary>Image</summary> 
+  
+  ![img](https://github.com/xprvtt/KenshiRing/blob/main/Documents/Assets%20github/property%20mvs.png)
+</details>
+
+3. Build the project.
+5. To understand how it works, go to the [Documents](https://github.com/xprvtt/KenshiRing/tree/main/Documents) folder, the project's visual implementation is presented there.
