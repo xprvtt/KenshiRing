@@ -2,7 +2,7 @@
 
 A mod that adds new sections and various buffs and debuffs.
 
-Inspired by the ["Extra Inventory Sections"](https://www.nexusmods.com/kenshi/mods/1838) mod, this is a fork of it, featuring a complete overhaul. 
+Inspired by the ["Extra Inventory Sections"](https://www.nexusmods.com/kenshi/mods/1838) mod, this is a fork of it, featuring a complete overhaul. With the addition of effects for clothing items
 
 Thanks to [BFrizzleFoShizzle](https://github.com/BFrizzleFoShizzle) for the opportunity to create mods like this.
 Thanks to [Genpretz](https://github.com/Genpretz). Using his project with the new sections, I created my own.
@@ -223,6 +223,10 @@ The program is provided "as is".
 1. [Perform all preparatory actions](https://github.com/weisspure/re_kenshi-working-solution/blob/main/README.md)
 2. Change the output file directory
 <details>
-  <summary>Image</summary>
+  <summary>Image</summary> 
+  
+  ![img](https://github.com/xprvtt/KenshiRing/blob/main/Documents/Assets%20github/property%20mvs.png)
+  
 </details>
-4. To understand how it works, go to the [Documents](https://github.com/xprvtt/KenshiRing/tree/main/Documents) folder; the project's visual implementation is presented there.
+3. Build the project.
+4. To understand how it works, go to the [Documents](https://github.com/xprvtt/KenshiRing/tree/main/Documents) folder, the project's visual implementation is presented there.
