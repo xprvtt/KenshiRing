@@ -27,10 +27,129 @@ The program is provided "as is".
 </details>
 
 <details>
-  <summary>Description rus</summary>
+  <summary>Effects 0.0.1</summary>
+  
+___
+
+<p align="center">Agree</p>
+  
+#DeathGaze -> OFF
+
+___
+
+<p align="center">Melee attack</p>
+
+#Vampir
+
+#AbsolutePenetration
+
+#DivineStrike
+
+#AreaDamage
+
+#Disarmament
+
+#ArmorStrip
+
+#Amputator
+
+#LimbRipper
+
+___
+
+<p align="center">Melee def</p>
+
+#BladeMail
+
+#DamageNullification
+
+#ClutchSurvival
+
+#UntouchableSoul
+
+___
+
+<p align="center">Eating</p>
+
+#Poisonous
+
+#Paralysis
+
+#IronSkin
+
+#BeastRevival
+
+___
+
+<p align="center">Medic</p>
+
+#DivineHealing
+
+#SoulDeadMedic
+
+#BloodTransfusion
+
+#Bloodsucker
+
+#Nanites
+
+___
+
+<p align="center">Medic patient</p>
+
+#CompliantPatient
+
+#ViolentPatient
+
+#DivineRigging -> OFF
+
+___
+
+<p align="center">Ranger def</p>
+
+#Bulletproof
+
+___
+
+<p align="center">Ranger attack</p>
+
+#SniperShot
+
+#DivineShot
+
+#CharmShot
+
+#ConversionShot
+
+#LifeStealingShot
+
+#Bonebreaker
+
+#SurgeonDream
+
+#PainfulShot
+
+#BloodTollShot
+
+#DemonsShotToll
+
+#ShotWanderingSoul
+
+#KhorneWanderingSoulShot
+
+#AnnihilatingShot
+
+___
+
+</details>
+
+<details>
+  <summary>FULL DESCRIPTION RUS</summary>
+  
+  <br/>
   Мод который добавляет предметам бафы и дебафы, а так же новые слоты
-
-
+  <br/>
+  
   <details>
     <summary>список эффектов</summary>
 
