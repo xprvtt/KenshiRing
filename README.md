@@ -9,12 +9,10 @@ Thanks to [Genpretz](https://github.com/Genpretz). Using his project with the ne
 
 ### Usage Requirements
   1. [RE_Kenshi v0.3.4 or Later](https://www.nexusmods.com/kenshi/mods/847)
-### disclaimer
-This project is not affiliated with or supported by Lo-Fi Games. Kenshi is the property of its respective rights holders.
-
-The program is provided "as is".
 
 ### Description
+
+
 <details>
   <summary>Inventory</summary>
   
@@ -153,9 +151,7 @@ ___
   <details>
     <summary>список эффектов</summary>
 
-# БЛИЖНИЙ БОЙ<br/>
-
-# атака<br/>
+# ближний бой, атака<br/>
 
 #Vampir <br/>
 при успешном ударе ближним оружием вы восстановите немного здоровья, но не больше максимального<br/>
@@ -204,7 +200,7 @@ ___
 Вы становитесь настолько обезумевшим воином, что одним ударом превращаете врага в салат из конечностей<br/>
 свойства <шанс сработать - NONE><br/>
 
-# защита<br/>
+# ближний бой, защита<br/>
 
 #BladeMail<br/>
 вы отражаете часть урона во врага в случайную часть тела<br/>
@@ -238,7 +234,7 @@ ___
 Когда вашу голову доедают, получите второй шанс на жизнь в этом мире, но уже в теле животного, которое вас съело<br/>
 свойства <шанс сработать - NONE><br/>
 
-# Оказание помощи себе или другим<br/>
+# оказание помощи себе или другим<br/>
 
 #DivineHealing<br/>
 Вы обладаете божественной силой, которая позволяет излечить полностью пациента<br/>
@@ -262,7 +258,7 @@ ___
 Ваши вены заполоняют микророботы, которые восстанавливают изношенные роботизированные протезы без ремкровати<br/>
 свойства <шанс сработать - усиление восстановления><br/>
 
-# Принятие помощи от кого то<br/>
+# принятие помощи от кого то<br/>
 
 #CompliantPatient<br/>
 Вы - послушный пациент, за это вы имеете шанс восстановиться полностью сразу<br/>
@@ -272,13 +268,13 @@ ___
 Вы - слишком буйный пациент, невзначай вы раните того, кто вам помогает и восстанавливаете здоровье себе гораздо быстрее, даже сверх максимального<br/>
 свойства <шанс сработать - усиление восстановления здоровья><br/>
 
-# Дальний бой, защита<br/>
+# дальний бой, защита<br/>
 
 #Bulletproof<br/>
 Вы становитесь пуленепробиваемым, снаряды щекочат вас, восстанавливаете здоровье, когда по вам попадают<br/>
 свойства <шанс сработать - % восстановления здоровья от максимального здоровья><br/>
 
-# Дальний бой, атака<br/>
+# дальний бой, атака<br/>
 
 #SniperShot<br/>
 Ваши выпущенные снаряды становятся настолько сильными, что наносят огромный урон по случайной части тела дополнительно<br/>
@@ -338,6 +334,24 @@ ___
   </details>
 </details>
 
+
+### Сompatibility
+  1. Fully compatible with mods that used "Extra Inventory Sections"
+  2. Incompatible with "Extra Inventory Section" and any other mods that modify inventory sections.
+  3. Incompatible with mods that alter character clothing generation.
+     
+### compatibility questions (unverified)
+  1. The mod uses its own hooks for in-game effects—specifically for melee and ranged attacks, when an animal or monster is eating you, and when you are healing someone.
+
+If you notice any incompatibility in these areas, please let me know.
+
+
+
+### disclaimer
+
+This project is not affiliated with or supported by Lo-Fi Games. Kenshi is the property of its respective rights holders.
+
+The program is provided "as is".
 
 # Compilation
 ### Requirements
