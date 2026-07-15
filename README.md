@@ -16,6 +16,17 @@ The program is provided "as is".
 
 ### Description
 <details>
+  <summary>Inventory</summary>
+  
+  ![img](https://github.com/xprvtt/KenshiRing/blob/main/Documents/Assets%20github/inv.png)
+</details>
+<details>
+  <summary>Ring, a small part</summary>
+  
+  ![img](https://github.com/xprvtt/KenshiRing/blob/main/Documents/Assets%20github/ring.png)
+</details>
+
+<details>
   <summary>Description rus</summary>
   Мод который добавляет предметам бафы и дебафы, а так же новые слоты
 
