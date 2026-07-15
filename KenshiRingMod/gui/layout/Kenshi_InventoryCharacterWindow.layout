@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MyGUI type="Layout" version="3.2.1">
+    <Widget type="Window" skin="Kenshi_WindowCXP" position_real="0 0 0.300000 0.650000" layer="Window" name="Root">
+        <Property key="Caption" value="INVENTORY"/>
+        <Widget type="Widget" skin="PanelEmpty" position_real="0 0 0.986343 1" align="Stretch">
+			
+			<!-- DISABLED ================================================================================================================================ -->
+			<Widget type="TextBox" skin="Kenshi_TextboxPaintedText"              position_real="2.05 0.11 0.22 0.03" name="lbWeapon2">
+				<Property key="Caption" value="WEAPON II"/>
+			</Widget>
+			<!-- DISABLED TextBox - 2x-->
+			
+			<Widget type="TextBox" skin="Kenshi_TextboxPaintedText"              position_real="2.05 0.23 0.22 0.03" name="lbWeapon1">
+				<Property key="Caption" value="WEAPON I"/>
+			</Widget>
+			<!-- DISABLED TextBox - 2x-->
+
+			<!-- LEFT ================================================================================================================================ -->
+
+			<!-- ===================== HEAVY WEAPON =================== -->
+			<Widget type="TextBox" skin="Kenshi_TextboxPaintedText"              position_real="0.05 0.02 0.22 0.03" name="lb_kr_heavy_weapon">
+				<Property key="Caption" value="HEAVY WEAPON"/>
+			</Widget>
+			<Widget type="Widget" skin="Kenshi_InventorySlotSkin"                position_real="0.05 0.05 0.5 0.0734177" name="back"/>
+			
+			<Widget type="ImageBox" skin="ImageBox"								 position_real="0.05 0.05 0.08 0.030">
+				<Property key="ImageTexture" value="KR_heavy_weapon.png"/>
+			</Widget>
+			
+			<!-- ===================== LIGHT WEAPON =================== -->
+			<Widget type="TextBox" skin="Kenshi_TextboxPaintedText"              position_real="0.05 0.14 0.22 0.03" name="lb_kr_light_weapon">
+				<Property key="Caption" value="LIGHT WEAPON"/>
+			</Widget>
+			<Widget type="Widget" skin="Kenshi_InventorySlotSkin"                position_real="0.05 0.17 0.352308 0.0341772" name="hip"/>
+
+			<Widget type="ImageBox" skin="ImageBox"								 position_real="0.05 0.17 0.075 0.035">
+				<Property key="ImageTexture" value="KR_light_weapon.png"/>
+			</Widget>
+
+			<!-- ===================== HEAD  ===================== -->
+            <Widget type="TextBox" skin="Kenshi_TextboxPaintedText"              position_real="0.05 0.22 0.22 0.03" name="lbHead">
+                <Property key="Caption" value="HEAD"/>
+            </Widget>
+            <Widget type="Widget" skin="Kenshi_InventorySlotSkin"                position_real="0.05 0.25 0.10 0.10" name="head"/>
+
+			<Widget type="ImageBox" skin="ImageBox"								 position_real="0.05 0.25 0.06 0.035">
+				<Property key="ImageTexture" value="KR_head.png"/>
+			</Widget>
+			
+            <!-- ===================== ARMOR ===================== -->
+            <Widget type="TextBox" skin="Kenshi_TextboxPaintedText"              position_real="0.05 0.37 0.22 0.03" name="lbArmor">
+                <Property key="Caption" value="ARMOR"/>
+            </Widget>
+            <Widget type="Widget" skin="Kenshi_InventorySlotSkin"                position_real="0.05 0.40 0.22 0.12" name="armour"/>
+
+			<Widget type="ImageBox" skin="ImageBox"								 position_real="0.05 0.40 0.04 0.035">
+				<Property key="ImageTexture" value="KR_armor.png"/>
+			</Widget>
+			
+			<!-- ===================== PANTS ===================== -->
+			<Widget type="TextBox" skin="Kenshi_TextboxPaintedText"              position_real="0.05 0.64 0.22 0.03" name="lbPants">
+				<Property key="Caption" value="PANTS"/>
+			</Widget>
+			<Widget type="Widget" skin="Kenshi_InventorySlotSkin"                position_real="0.05 0.67 0.22 0.10" name="legs"/>
+			
+			<Widget type="ImageBox" skin="ImageBox"								 position_real="0.04 0.67 0.06 0.035">
+				<Property key="ImageTexture" value="KR_pants.png"/>
+			</Widget>
+			
+            <!-- ===================== BOOTS ===================== -->
+            <Widget type="TextBox" skin="Kenshi_TextboxPaintedText"              position_real="0.05 0.87 0.22 0.03" name="lbBoots">
+                <Property key="Caption" value="BOOTS"/>
+            </Widget>
+            <Widget type="Widget" skin="Kenshi_InventorySlotSkin"                position_real="0.05 0.90 0.22 0.08" name="boots"/>
+
+			<Widget type="ImageBox" skin="ImageBox"								 position_real="0.04 0.90 0.07 0.035">
+				<Property key="ImageTexture" value="KR_boots.png"/>
+			</Widget>
+			
+			<!-- MIDDLE ================================================================================================================================ -->
+			
+			<!-- ===================== EXTRA INVERTORY SECTIONS ===================== -->
+			<Widget type="TextBox" skin="Kenshi_TextboxPaintedText"              position_real="0.26 0.22 0.22 0.03" name="lbEIS_Eyes">
+                <Property key="Caption" value="EYES"/>
+            </Widget>
+			<Widget type="Widget" skin="Kenshi_InventorySlotSkin"                position_real="0.26 0.25 0.150769 0.0291139"  name="EIS_eyes_hats"/>
+			<Widget type="Widget" skin="Kenshi_InventorySlotSkin"                position_real="0.26 0.287 0.150769 0.0291139" name="EIS_eyes_eyes"/>
+			<Widget type="Widget" skin="Kenshi_InventorySlotSkin"                position_real="0.26 0.325 0.150769 0.0291139"  name="EIS_eyes_belts"/>
+
+			<Widget type="ImageBox" skin="ImageBox"								 position_real="0.25 0.25 0.06 0.035">
+				<Property key="ImageTexture" value="KR_eyes.png"/>
+			</Widget>
+			
+			<!-- ===================== NECK  ===================== -->
+			<Widget type="TextBox" skin="Kenshi_TextboxPaintedText"              position_real="0.26 0.37 0.15 0.03" name="lbNeck">
+                <Property key="Caption" value="NECK"/>
+            </Widget>
+            <Widget type="Widget" skin="Kenshi_InventorySlotSkin"                position_real="0.26 0.40 0.15 0.08" name="EIS_neck"/>
+
+			<Widget type="ImageBox" skin="ImageBox"								 position_real="0.26 0.40 0.035 0.035">
+				<Property key="ImageTexture" value="KR_neck.png"/>
+			</Widget>
+			
+            <!-- ===================== HANDS  ===================== -->
+            <Widget type="TextBox" skin="Kenshi_TextboxPaintedText"              position_real="0.26 0.49 0.15 0.03" name="lbGloves">
+                <Property key="Caption" value="HANDS"/>
+            </Widget>
+            <Widget type="Widget" skin="Kenshi_InventorySlotSkin"                position_real="0.26 0.52 0.15 0.08" name="EIS_gloves"/>
+
+			<Widget type="ImageBox" skin="ImageBox"								 position_real="0.26 0.52 0.07 0.035">
+				<Property key="ImageTexture" value="KR_hands.png"/>
+			</Widget>
+			
+			<!-- ===================== EXTRA INVERTORY SECTIONS ===================== -->
+
+			<!-- ===================== BELT  ===================== -->
+			<Widget type="TextBox" skin="Kenshi_TextboxPaintedText"              position_real="0.26 0.61 0.18 0.03" name="lbBelt">
+				<Property key="Caption" value="BELT"/>
+			</Widget>
+			<Widget type="Widget" skin="Kenshi_InventorySlotSkin"                position_real="0.26 0.64 0.18 0.07" name="belt"/>
+
+			<Widget type="ImageBox" skin="ImageBox"								 position_real="0.26 0.64 0.05 0.035">
+				<Property key="ImageTexture" value="KR_belt.png"/>
+			</Widget>
+			
+			<!-- ===================== HIP KR ===================== -->
+			<Widget type="TextBox" skin="Kenshi_TextboxPaintedText"              position_real="0.26 0.725 0.18 0.03" name="lb_kr_hip">
+				<Property key="Caption" value="HIP"/>
+			</Widget>
+			<Widget type="Widget" skin="Kenshi_InventorySlotSkin"                position_real="0.26 0.755 0.09 0.07" name="KR_hip"/>
+
+			<Widget type="ImageBox" skin="ImageBox"								 position_real="0.26 0.755 0.05 0.035">
+				<Property key="ImageTexture" value="KR_hip.png"/>
+			</Widget>
+
+			<!-- ===================== lowerleg KR ===================== -->
+			<Widget type="TextBox" skin="Kenshi_TextboxPaintedText"              position_real="0.26 0.835 0.18 0.03" name="lb_kr_lowerleg">
+                <Property key="Caption" value="L.LEG"/>
+            </Widget>
+            <Widget type="Widget" skin="Kenshi_InventorySlotSkin"                position_real="0.26 0.865 0.09 0.115" name="KR_lowerleg"/>
+
+			<Widget type="ImageBox" skin="ImageBox"								 position_real="0.26 0.865 0.05 0.035">
+				<Property key="ImageTexture" value="KR_lowerleg.png"/>
+			</Widget>
+
+			
+			<!-- RIGHT ================================================================================================================================ -->
+
+			
+			<!-- ===================== DAGGER ===================== -->
+			<!-- выключен до лучших времен
+			<Widget type="TextBox" skin="Kenshi_TextboxPaintedText"              position_real="0.43 0.14 0.18 0.03" name="lb_kr_dagger">
+				<Property key="Caption" value="DAGGER"/>
+			</Widget>
+			<Widget type="Widget" skin="Kenshi_InventorySlotSkin"                position_real="0.43 0.17 0.135 0.0385" name="KR_dagger"/>
+			
+			<Widget type="ImageBox" skin="ImageBox"								 position_real="0.43 0.17 0.05 0.030">
+				<Property key="ImageTexture" value="KR_dagger.png"/>
+			</Widget>
+			-->
+			
+			<!-- ===================== EARS KR  ===================== -->
+			<Widget type="TextBox" skin="Kenshi_TextboxPaintedText"              position_real="0.43 0.22 0.18 0.03" name="lb_kr_ears">
+				<Property key="Caption" value="EARS"/>
+			</Widget>
+			<Widget type="Widget" skin="Kenshi_InventorySlotSkin"                position_real="0.43 0.25 0.135 0.0385" name="KR_ears"/>
+
+			<Widget type="ImageBox" skin="ImageBox"								 position_real="0.43 0.25 0.04 0.035">
+				<Property key="ImageTexture" value="KR_ears.png"/>
+			</Widget>
+			
+			<!-- ===================== CHAIN KR  ===================== -->
+			<Widget type="TextBox" skin="Kenshi_TextboxPaintedText"              position_real="0.43 0.30 0.18 0.03" name="lb_kr_chain">
+				<Property key="Caption" value="CHAIN"/>
+			</Widget>
+			<Widget type="Widget" skin="Kenshi_InventorySlotSkin"                position_real="0.43 0.33 0.135 0.0385" name="KR_chain"/>
+
+			<Widget type="ImageBox" skin="ImageBox"								 position_real="0.43 0.33 0.04 0.035">
+				<Property key="ImageTexture" value="KR_chain.png"/>
+			</Widget>
+
+			<!-- ===================== SHIRT ===================== -->
+			<Widget type="TextBox" skin="Kenshi_TextboxPaintedText"              position_real="0.38 0.37 0.22 0.03" name="lbShirt">
+				<Property key="Caption" value="SHIRT"/>
+			</Widget>
+			<Widget type="Widget" skin="Kenshi_InventorySlotSkin"                position_real="0.38 0.40 0.20 0.08" name="shirt"/>
+			
+			<Widget type="ImageBox" skin="ImageBox"								 position_real="0.38 0.40 0.04 0.035">
+				<Property key="ImageTexture" value="KR_shirt.png"/>
+			</Widget>
+			
+			<!-- ===================== SHOULDERS KR ===================== -->
+			<Widget type="TextBox" skin="Kenshi_TextboxPaintedText"              position_real="0.38 0.49 0.22 0.03" name="lb_kr_shoulders">
+				<Property key="Caption" value="SHOULDERS"/>
+			</Widget>
+			<Widget type="Widget" skin="Kenshi_InventorySlotSkin"                position_real="0.38 0.52 0.20 0.17" name="KR_shoulders"/>
+
+			<Widget type="ImageBox" skin="ImageBox"								 position_real="0.38 0.52 0.04 0.035">
+				<Property key="ImageTexture" value="KR_shoulders.png"/>
+			</Widget>
+
+
+			<!-- ===================== FOREARM KR ===================== -->
+			<Widget type="TextBox" skin="Kenshi_TextboxPaintedText"              position_real="0.38 0.64 0.18 0.03" name="lb_kr_forearm">
+                <Property key="Caption" value="FOREARM"/>
+            </Widget>
+            <Widget type="Widget" skin="Kenshi_InventorySlotSkin"                position_real="0.38 0.67 0.135 0.0385" name="KR_forearm"/>
+
+			<Widget type="ImageBox" skin="ImageBox"								 position_real="0.38 0.67 0.07 0.035">
+				<Property key="ImageTexture" value="KR_forearm.png"/>
+			</Widget>
+			
+			<!-- ===================== FINGERS KR  ===================== -->
+			<Widget type="TextBox" skin="Kenshi_TextboxPaintedText"              position_real="0.38 0.76 0.18 0.03" name="lb_kr_fingers">
+                <Property key="Caption" value="FINGERS"/>
+            </Widget>
+            <Widget type="Widget" skin="Kenshi_InventorySlotSkin"                position_real="0.38 0.79  0.179 0.0385" name="KR_fingers"/>
+
+			<Widget type="ImageBox" skin="ImageBox"								 position_real="0.38 0.79 0.07 0.035">
+				<Property key="ImageTexture" value="KR_fingers.png"/>
+			</Widget>
+			
+			<!-- ===================== TOES KR ===================== -->
+			<Widget type="TextBox" skin="Kenshi_TextboxPaintedText"              position_real="0.38 0.87 0.18 0.03" name="lb_kr_toes">
+                <Property key="Caption" value="TOES"/>
+            </Widget>
+            <Widget type="Widget" skin="Kenshi_InventorySlotSkin"                position_real="0.38 0.90  0.179 0.0385" name="KR_toes"/>
+
+			<Widget type="ImageBox" skin="ImageBox"								 position_real="0.38 0.90 0.07 0.035">
+				<Property key="ImageTexture" value="KR_toes.png"/>
+			</Widget>
+			
+			
+			<!-- RIGHT (INVERTORY | BACKPAKCS | QUIVER | INFO) =========================================================================================== -->
+			
+			
+			<!-- ===================== datapanel  ===================== -->
+			<Widget type="Widget" skin="Kenshi_FrameSkin" position_real="0.60 0.020 0.375 0.265">
+				<Widget type="Widget" skin="Kenshi_TextBoxEmptySkin" position_real="0.0259259 0.018018 0.859259 0.905405" name="datapanel"/>
+			</Widget>
+
+			<!-- ===================== POCKET KR  ===================== -->
+			<Widget type="TextBox" skin="Kenshi_TextboxPaintedText"                position_real="0.874 0.29 0.20 0.03" name="lb_kr_pocket">
+				<Property key="Caption" value="POCKET"/>
+			</Widget>
+			<Widget type="Widget" skin="Kenshi_InventorySlotSkin"                  position_real="0.874 0.32 0.09 0.152" name="KR_pocket"/>
+
+			<Widget type="ImageBox" skin="ImageBox"								 position_real="0.874 0.32 0.04 0.035">
+				<Property key="ImageTexture" value="KR_pocket.png"/>
+			</Widget>
+			
+			<!-- ===================== BACKPACK  ===================== -->
+			<Widget type="TextBox" skin="Kenshi_TextboxPaintedText"                position_real="0.60 0.29 0.21 0.03" name="lbBackpack">
+                <Property key="Caption" value="BACKPACK"/>
+                <Property key="TextAlign" value="Center"/>
+            </Widget>
+            <Widget type="Widget" skin="Kenshi_InventorySlotSkin"                  position_real="0.60 0.32 0.20 0.10"  name="backpack_attach"/>
+
+			<Widget type="ImageBox" skin="ImageBox"								 position_real="0.60 0.32 0.05 0.035">
+				<Property key="ImageTexture" value="KR_backpack.png"/>
+			</Widget>
+			
+			<!-- ===================== КНОПКИ ===================== -->
+			<Widget type="Button" skin="Kenshi_Button1"                          position_real="0.60 0.49 0.15 0.04" name="OpenBagButton">
+				<Property key="Caption" value="OPEN BAG"/>
+			</Widget>
+
+			<Widget type="Button" skin="Kenshi_Button1"                          position_real="0.7845 0.49 0.176 0.04" name="LimbsButton">
+				<Property key="Caption" value="LIMBS"/>
+			</Widget>
+
+			<!-- ===================== INVENTORY  ===================== -->
+			<Widget type="TextBox" skin="Kenshi_TextboxPaintedText"                position_real="0.60 0.187 0.20 0.03" name="InventoryMainTitle">
+                <Property key="Caption" value="INVENTORY"/>
+            </Widget>			
+            <Widget type="Widget" skin="Kenshi_InventorySlotSkin"                  position_real="0.60 0.222 0.20 0.75" name="main"/>
+
+			<!-- ===================== ARRANGE  ===================== -->
+            <Widget type="Button" skin="Kenshi_Button1"                            position_real="0.7845 0.555 0.176 0.0355" name="ArrangeButton">
+                <Property key="Caption" value="ARRANGE"/>
+                <Property key="TextAlign" value="Center"/>
+            </Widget>
+			
+			<!-- ================================================================================================================================ -->
+
+		</Widget>
+    </Widget>
+    <CodeGeneratorSettings>
+        <Property key="IncludeDirectory" value=""/>
+        <Property key="PanelName" value=""/>
+        <Property key="PanelNamespace" value=""/>
+        <Property key="SourceDirectory" value=""/>
+    </CodeGeneratorSettings>
+</MyGUI>

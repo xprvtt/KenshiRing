@@ -1,0 +1,11 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Win32" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="KenshiRing.vcxproj" Id="a6351b45-56be-41b5-adbf-6f046c8041fc">
+    <BuildType Solution="Debug|x64" Project="Release" />
+    <Platform Solution="Release|Win32" Project="x64" />
+  </Project>
+</Solution>

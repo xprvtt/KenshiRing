@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Hook">
+      <UniqueIdentifier>{a3570d3c-84c1-40d7-b707-f0bab0de0e00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Hook\SourceHook">
+      <UniqueIdentifier>{159315cb-4c9b-4bf5-a81e-4b1186131351}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MacrosHelper">
+      <UniqueIdentifier>{29f53ba0-ecc1-4062-b814-983bd5684de1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Setup">
+      <UniqueIdentifier>{ab64b9e3-d394-43fe-93e5-8b976953386a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Setup\CustomEffects">
+      <UniqueIdentifier>{2346eb41-e167-43c7-95ba-caafa8148f04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Setup\CustomEffects\Attack">
+      <UniqueIdentifier>{3e753cd8-2e32-426b-b872-036ad0155a0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\InvertoryKR">
+      <UniqueIdentifier>{8bc3f4f7-5090-4435-a226-39c7eafe7487}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Setup\CustomEffects\Medic">
+      <UniqueIdentifier>{433b087a-bb03-419e-bd65-f87c50784ab7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Setup\CustomEffects\Medic\Doctoring">
+      <UniqueIdentifier>{ae563092-6272-4db2-90dd-3c1aba7b1c1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Setup\CustomEffects\Agree">
+      <UniqueIdentifier>{6ad8bd5a-dc97-41a1-8fa4-54b9195019a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Setup\CustomEffects\Medic\Rigging">
+      <UniqueIdentifier>{88dc5f90-584c-4a3c-af1b-ae0736fb05e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Setup\CustomEffects\GettingEaten">
+      <UniqueIdentifier>{b4129a2e-4fb5-4ef0-8720-cf012f897c10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Setup\CustomEffects\Shot">
+      <UniqueIdentifier>{cff30405-b464-46b8-989f-1c09a5436eb8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="KenshiRing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SetupMacrosHelper.h">
+      <Filter>Header Files\MacrosHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>Source Files\Hook\SourceHook</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventory.cpp">
+      <Filter>Source Files\Hook\SourceHook</Filter>
+    </ClCompile>
+    <ClCompile Include="MedicalSystem.cpp">
+      <Filter>Source Files\Hook\SourceHook</Filter>
+    </ClCompile>
+    <ClCompile Include="RootObjectFactory.cpp">
+      <Filter>Source Files\Hook\SourceHook</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseLayout.cpp">
+      <Filter>Source Files\Hook\SourceHook</Filter>
+    </ClCompile>
+    <ClCompile Include="Setup.cpp">
+      <Filter>Source Files\Setup</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigHookExtension.h">
+      <Filter>Source Files\Setup\CustomEffects</Filter>
+    </ClCompile>
+    <ClCompile Include="RecievingHelp.h">
+      <Filter>Source Files\Setup\CustomEffects\Medic\Doctoring</Filter>
+    </ClCompile>
+    <ClCompile Include="YouShot.h">
+      <Filter>Source Files\Setup\CustomEffects\Shot</Filter>
+    </ClCompile>
+    <ClCompile Include="YouAttacking.h">
+      <Filter>Source Files\Setup\CustomEffects\Attack</Filter>
+    </ClCompile>
+    <ClCompile Include="GetShot.h">
+      <Filter>Source Files\Setup\CustomEffects\Shot</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyAttackTarget.h">
+      <Filter>Source Files\Setup\CustomEffects\Agree</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CoreKenshiRing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HookKR.h">
+      <Filter>Source Files\Hook</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreMacrosHelper.h">
+      <Filter>Header Files\MacrosHelper</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigureInventory.h">
+      <Filter>Header Files\InvertoryKR</Filter>
+    </ClInclude>
+    <ClInclude Include="InventoryKR.h">
+      <Filter>Header Files\InvertoryKR</Filter>
+    </ClInclude>
+    <ClInclude Include="HookExtension.h">
+      <Filter>Source Files\Setup\CustomEffects</Filter>
+    </ClInclude>
+    <ClInclude Include="Doctoring.h">
+      <Filter>Source Files\Setup\CustomEffects\Medic\Doctoring</Filter>
+    </ClInclude>
+    <ClInclude Include="Rigging.h">
+      <Filter>Source Files\Setup\CustomEffects\Medic\Rigging</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimalEatingYou.h">
+      <Filter>Source Files\Setup\CustomEffects\GettingEaten</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="YouTakingHit.h">
+      <Filter>Source Files\Setup\CustomEffects\Attack</Filter>
+    </None>
+  </ItemGroup>
+</Project>
