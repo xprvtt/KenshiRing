@@ -9,8 +9,10 @@ Thanks to [Genpretz](https://github.com/Genpretz). Using his project, I created 
 
 ### Usage Requirements
   1. [RE_Kenshi v0.3.4 or Later](https://www.nexusmods.com/kenshi/mods/847)
-     
+### disclaimer
 This project is not affiliated with or supported by Lo-Fi Games. Kenshi is the property of its respective rights holders.
+
+The program is provided "as is".
 
 <details>
   <summary>Description rus</summary>
