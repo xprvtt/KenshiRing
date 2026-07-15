@@ -14,6 +14,7 @@ This project is not affiliated with or supported by Lo-Fi Games. Kenshi is the p
 
 The program is provided "as is".
 
+### Description
 <details>
   <summary>Description rus</summary>
   Мод который добавляет предметам бафы и дебафы, а так же новые слоты
