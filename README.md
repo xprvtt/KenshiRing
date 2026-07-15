@@ -345,7 +345,7 @@ ___
 
 If you notice any incompatibility in these areas, please let me know.
 
-
+![img1](https://github.com/xprvtt/KenshiRing/blob/main/Documents/Assets%20github/amputator.gif)
 
 ### disclaimer
 
