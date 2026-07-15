@@ -219,3 +219,7 @@ This project is not affiliated with or supported by Lo-Fi Games. Kenshi is the p
 ### Preparation
 1. [Perform all preparatory actions](https://github.com/weisspure/re_kenshi-working-solution/blob/main/README.md)
 2. Change the output file directory
+<details>
+  <summary>Image</summary>
+</details>
+4. To understand how it works, go to the [Documents](https://github.com/xprvtt/KenshiRing/tree/main/Documents) folder; the project's visual implementation is presented there.
