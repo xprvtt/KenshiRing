@@ -27,7 +27,6 @@ The program is provided "as is".
 
 # атака<br/>
 
-
 #Vampir <br/>
 при успешном ударе ближним оружием вы восстановите немного здоровья, но не больше максимального<br/>
 свойства <шанс сработать - усиление в %><br/>
@@ -143,9 +142,7 @@ The program is provided "as is".
 Вы - слишком буйный пациент, невзначай вы раните того, кто вам помогает и восстанавливаете здоровье себе гораздо быстрее, даже сверх максимального<br/>
 свойства <шанс сработать - усиление восстановления здоровья><br/>
 
---- <br/>
 # Дальний бой, защита<br/>
---- <br/>
 
 #Bulletproof<br/>
 Вы становитесь пуленепробиваемым, снаряды щекочат вас, восстанавливаете здоровье, когда по вам попадают<br/>
@@ -226,7 +223,7 @@ The program is provided "as is".
   <summary>Image</summary> 
   
   ![img](https://github.com/xprvtt/KenshiRing/blob/main/Documents/Assets%20github/property%20mvs.png)
-  
 </details>
+
 3. Build the project.
-4. To understand how it works, go to the [Documents](https://github.com/xprvtt/KenshiRing/tree/main/Documents) folder, the project's visual implementation is presented there.
+5. To understand how it works, go to the [Documents](https://github.com/xprvtt/KenshiRing/tree/main/Documents) folder, the project's visual implementation is presented there.
