@@ -581,9 +581,8 @@ ___
   1. Fully compatible with mods that used "Extra Inventory Sections"
   2. Incompatible with "Extra Inventory Section" and any other mods that modify inventory sections.
   3. Incompatible with mods that alter character clothing generation.
-     
-### compatibility questions (unverified)
-  1. The mod uses its own hooks for in-game effects—specifically for melee and ranged attacks, when an animal or monster is eating you, and when you are healing someone.
+
+The mod uses its own hooks for in-game effects—specifically for melee and ranged attacks, when an animal or monster is eating you, and when you are healing someone.
 
 If you notice any incompatibility in these areas, please let me know.
 
