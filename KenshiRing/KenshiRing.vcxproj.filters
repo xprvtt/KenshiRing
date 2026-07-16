@@ -68,9 +68,6 @@
     <ClCompile Include="RootObjectFactory.cpp">
       <Filter>Source Files\Hook\SourceHook</Filter>
     </ClCompile>
-    <ClCompile Include="BaseLayout.cpp">
-      <Filter>Source Files\Hook\SourceHook</Filter>
-    </ClCompile>
     <ClCompile Include="Setup.cpp">
       <Filter>Source Files\Setup</Filter>
     </ClCompile>

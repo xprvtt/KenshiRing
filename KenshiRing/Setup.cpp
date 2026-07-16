@@ -22,7 +22,7 @@ void setup()
 		// для безопасного добавление секций используйте макрос KRI_ADD_SECTION
 		// Вы можете сколько угодно добавлять таким путем слоты 
 		
-		// Extra Inventory Section Patch, чтобы держать совместимость с уже существующими модами
+		//чтобы держать совместимость с уже существующими модами, которые использовали EIS
 		KRI_ADD_SECTION(ConfigIKR::PropertySectionKR("EIS_eyes_hats",  ConfigIKR::Size2D(3, 1), AttachSlot::ATTACH_HAT, true, false, true, 1));
 		KRI_ADD_SECTION(ConfigIKR::PropertySectionKR("EIS_eyes_eyes",  ConfigIKR::Size2D(3, 1), AttachSlot::ATTACH_EYES,    true, false, true, 1));
 		KRI_ADD_SECTION(ConfigIKR::PropertySectionKR("EIS_eyes_belts", ConfigIKR::Size2D(3, 1), AttachSlot::ATTACH_BELT,    true, false, true, 1));

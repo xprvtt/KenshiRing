@@ -14,13 +14,13 @@
 
 void (*Character_NV_init_orig)(Character* thisptr) = nullptr;
 void ensureExtraInventorySections(Inventory* inv, std::vector<ConfigIKR::PropertySectionKR> newSlots);
-void Character_NV_init_hook(Character* thisptr)
+void _NV_init_hook(Character* thisptr)
 {
-    KR_DEBUG_LOG_L5("Call - Character_NV_init_hook");
+    KR_DEBUG_LOG_L5("Call - _NV_init_hook");
 
     Character_NV_init_orig(thisptr);
     ensureExtraInventorySections(thisptr->inventory, KRI_GET_INSTANCE.getNewSections());
-    KR_DEBUG_LOG_L5("Exit - Character_NV_init_hook");
+    KR_DEBUG_LOG_L5("Exit - _NV_init_hook");
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -70,16 +70,16 @@ void ensureExtraInventorySections(Inventory* inv, std::vector<ConfigIKR::Propert
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-bool (*Character_NV_gettingEaten_orig)(Character* thsptr, float amount, Character* eater) = nullptr;
-bool Character_NV_gettingEaten_hook(Character* thsptr, float amount, Character* eater)
+bool (*_NV_gettingEaten_orig)(Character* thsptr, float amount, Character* eater) = nullptr;
+bool _NV_gettingEaten_hook(Character* thsptr, float amount, Character* eater)
 {
-    KR_DEBUG_LOG_L5("Call - Character_NV_gettingEaten_hook");
+    KR_DEBUG_LOG_L5("Call - _NV_gettingEaten_hook");
 
     // проход по бафам того кто нас ест
     FOR_EACH_COLOR(thsptr, MAIN_MACROS_BEFORE_GETTING_EATEN(__AUTO_NAME__, __AUTO_CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, *thsptr, amount, *eater));
 
-    KR_DEBUG_LOG_L5("Exit - Character_NV_gettingEaten_hook");
-	return Character_NV_gettingEaten_orig(thsptr, amount, eater);;
+    KR_DEBUG_LOG_L5("Exit - _NV_gettingEaten_hook");
+	return _NV_gettingEaten_orig(thsptr, amount, eater);;
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -114,33 +114,33 @@ HitMaterialType _NV_hitByMeleeAttack_hook(Character* thsptr, CutDirection dir, D
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-void (*Character_attackTarget_orig)(Character*, Character*) = nullptr;
-void Character_attackTarget_hook(Character* thsptr, Character* who)
+void (*attackTarget_orig)(Character*, Character*) = nullptr;
+void attackTarget_hook(Character* thsptr, Character* who)
 {
-    KR_DEBUG_LOG_L5_4("Call - Character_attackTarget_hook");
+    KR_DEBUG_LOG_L5_4("Call - attackTarget_hook");
 
     FOR_EACH_COLOR(who, MAIN_MACROS_BEFORE_ATTACK_TARGET(__AUTO_NAME__, __AUTO_CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, *thsptr, *who));
 
-    KR_DEBUG_LOG_L5_4("Exit - Character_attackTarget_hook");
-    Character_attackTarget_orig(thsptr, who);;
+    KR_DEBUG_LOG_L5_4("Exit - attackTarget_hook");
+    attackTarget_orig(thsptr, who);;
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // не используется
-void (*Character_NV_update_orig)(Character*) = nullptr;
-void Character_NV_update_hook(Character* thsptr)
+void (*_NV_update_orig)(Character*) = nullptr;
+void _NV_update_hook(Character* thsptr)
 {
-    Character_NV_update_orig(thsptr);
+    _NV_update_orig(thsptr);
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
-bool (*Character_iShotYou_orig)(Character* thsptr, Character* attacker, Harpoon* poon, bool onPurpose) = nullptr;
-bool Character_iShotYou_hook(Character* thsptr, Character* attacker, Harpoon* poon, bool onPurpose)
+bool (*iShotYou_orig)(Character* thsptr, Character* attacker, Harpoon* poon, bool onPurpose) = nullptr;
+bool _iShotYou_hook(Character* thsptr, Character* attacker, Harpoon* poon, bool onPurpose)
 {
-    KR_DEBUG_LOG_L5_3("Call - Character_iShotYou_hook");
+    KR_DEBUG_LOG_L5_3("Call - _iShotYou_hook");
 
-    auto res =  Character_iShotYou_orig(thsptr, attacker, poon, onPurpose);
+    auto res =  iShotYou_orig(thsptr, attacker, poon, onPurpose);
 
     // проход по тому КТО выстрелил
     FOR_EACH_COLOR(attacker, MAIN_MACROS_AFTER_SHOT(__AUTO_NAME__, __AUTO_CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, *thsptr, *attacker, *poon, onPurpose, res));
@@ -148,7 +148,7 @@ bool Character_iShotYou_hook(Character* thsptr, Character* attacker, Harpoon* po
     // проход по тому КТО получил пулю
     FOR_EACH_COLOR(thsptr, MAIN_MACROS_AFTER_GET_SHOT(__AUTO_NAME__, __AUTO_CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, *thsptr, *attacker, *poon, onPurpose, res));
 
-    KR_DEBUG_LOG_L5_3("Exit - Character_iShotYou_hook === " + SuppKR::toStringV100(res));
+    KR_DEBUG_LOG_L5_3("Exit - _iShotYou_hook === " + SuppKR::toStringV100(res));
     return res;
 }
 

@@ -11,7 +11,7 @@ InventorySection* getSectionOfType_hook(Inventory* thisptr, AttachSlot type)
     InventorySection* approvedSection = nullptr;
 
     // thisptr->getSection(""); должен указывать на самую большую секцию (x*y), если секций >1 для типа AttachSlot
-    // сделать этот метод автономным будет стоить оргромной потере производительности из-за 100+ вызовов в секунду, поэтому добавтье вручную
+    // сделать этот метод автономным будет стоить оргромной потере производительности из-за 100+ вызовов в секунду, поэтому добавте вручную
 
     switch (type)
     {
