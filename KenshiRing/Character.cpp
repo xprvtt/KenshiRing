@@ -40,17 +40,6 @@ void _NV_init_hook(Character* thisptr)
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// This function checks for the existence of our extra inventory sections and creates them if they don't already exist.
-void ensureExtraInventorySections(Inventory* inv, std::vector<ConfigIKR::PropertySectionKR> newSlots)
-{
-    KR_DEBUG_LOG_L5("Call - ensureExtraInventorySections");
-
-
-    KR_DEBUG_LOG_L5("Exit - ensureExtraInventorySections");
-}
-
-//-------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 bool (*_NV_gettingEaten_orig)(Character* thsptr, float amount, Character* eater) = nullptr;
 bool _NV_gettingEaten_hook(Character* thsptr, float amount, Character* eater)
 {
