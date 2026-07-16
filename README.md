@@ -12,18 +12,58 @@ Thanks to [Genpretz](https://github.com/Genpretz). Using his project with the ne
 
 ### Description
 
+15 new inventory sections added.
 
 <details>
   <summary>Inventory</summary>
   
   ![img](https://github.com/xprvtt/KenshiRing/blob/main/Documents/Assets%20github/inv.png)
+
+Additional slot for a small knife (ATTACH_WEAPON 3x1) — currently disabled.
+
+Face area, distributed across 3 additional sections ("Extra Inventory Sections") with attachments:
+ATTACH_HAT 3x1
+ATTACH_EYES 3x1
+ATTACH_BELT 3x1
+
+Ears: ATTACH_HAIR 3x1
+
+Neck: ATTACH_NECK 2x2 (Extra Inventory Sections)
+
+Chain: ATTACH_NECK 3x1
+
+Hand: ATTACH_GLOVES 2x2
+
+Hand/Forearm: ATTACH_GLOVES 4x2
+
+Shoulders: ATTACH_BACK 4x3
+
+Hip: ATTACH_LEGS 2x2
+
+Lower leg: ATTACH_BOOTS 2x3
+
+Fingers: ATTACH_BEARD 4x2
+
+Toes: ATTACH_BEARD 4x2
+
+Pocket: ATTACH_NONE 2x4 (for any item)
+
+___
+
 </details>
+
+new clothing for these "ring" slots uses the finger and toe slots
+
 <details>
   <summary>Ring, a small part</summary>
   
   ![img](https://github.com/xprvtt/KenshiRing/blob/main/Documents/Assets%20github/ring.png)
+
+___
+  
 </details>
 
+items with buffs and debuffs that you can equip to gain their power (currently only rings)
 
 <details>
   <summary>Gif</summary> 
@@ -31,6 +71,8 @@ Thanks to [Genpretz](https://github.com/Genpretz). Using his project with the ne
 ![img1](https://github.com/xprvtt/KenshiRing/blob/main/Documents/Assets%20github/amputator.gif)
 
 ![img1](https://github.com/xprvtt/KenshiRing/blob/main/Documents/Assets%20github/effect.gif)
+
+___
 
 </details>
 
@@ -152,14 +194,16 @@ ___
 
 </details>
 
+___
+
 <details>
   <summary>FULL DESCRIPTION RUS</summary>
   
-  <br/>
+<br/>
   Мод который добавляет предметам бафы и дебафы, а так же новые слоты
-  <br/>
+
   
-  <details>
+<details>
     <summary>список эффектов</summary>
 
 # ближний бой, атака<br/>
@@ -342,9 +386,11 @@ ___
 В вас теперь находится душа демона, теперь при попадании, ваша душа перемешается в тело противника, любого противника, предыдущее ваше тело умирает<br/>
 свойства <шанс сработать - NONE><br/>
 
+
   </details>
 </details>
 
+___
 
 ### Сompatibility
   1. Fully compatible with mods that used "Extra Inventory Sections"
