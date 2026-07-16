@@ -33,7 +33,7 @@
 *    например для удаления после вызова.  __AUTO_ITEM__ != nullptr
 * 
 * 8. оптимизация. Eсли вы добавляете "часто вызываемую" функцию(effect) добавьте ее выше остальных, если же она реже всех то ниже
-*    пример: "#yourNameEffect" наложен на огромное колличество предметов, для оптимизации использован if( foo(); continue;) подход вместо vector<pair<string, function>>
+*    пример: "#yourNameEffect" наложен на огромное колличество предметов, для оптимизации использован if( foo(); continue;) подход, вместо vector<pair<string, function>>
 *    изходя из этого чем выше находится частоиспользуемая функция тем меньше затрат на прохождение цепочки if-if-if-if-if ....
 */
 
@@ -67,9 +67,9 @@ inline void bladeMail(const float modificatorEffect, Item* itemThatCaused, Chara
     newDamage.bleedMult         *= modificatorEffect;
     newDamage.blunt             *= modificatorEffect;
     newDamage.cut               *= modificatorEffect;
-    newDamage.extraStun         *= modificatorEffect;
+    //newDamage.extraStun         *= modificatorEffect;
     newDamage.pierce            *= modificatorEffect;
-    newDamage.armourPenetration *= modificatorEffect;
+    //newDamage.armourPenetration *= modificatorEffect;
 
     auto& anatomy = attacking.medical.anatomy;
     anatomy[SuppKR::fastRandom(anatomy.size() - 1)]->applyDamage(newDamage);

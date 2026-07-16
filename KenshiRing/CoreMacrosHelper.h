@@ -16,8 +16,6 @@
 // TODO: move to config.json?
 // HOOK enabled
 
-//========================================
-
 #define CHARACTER_NV_INIT
 //#define CHARACTER_NV_UPDATE // производительность?
 #define CHARACTER_NV_HITBYMELEEATTACK

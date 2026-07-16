@@ -22,6 +22,7 @@
 #include <kenshi/Item.h>
 #include <kenshi/Damages.h>
 #include <kenshi/RaceData.h>
+#include <kenshi/Platoon.h>
 
 #include "CoreMacrosHelper.h"
 

@@ -9,12 +9,12 @@ namespace HookExtension
     inline bool compareStringForEffect(const std::string& expected, const std::string& value)
     {
         KR_DEBUG_LOG_L10(value + " -> attainable effect: " + expected);
-        if (value.size() <= 8 || value[0] != '#') // # - обозначаем наши эффекты
+        if (value.size() <= 13 || value[0] != '#') // # - обозначаем наши эффекты после самого названия есть 13 символов по вашему усмотрению, как вы будете их использовать
         {
             KR_DEBUG_LOG_L10("\t|_ not approved");
             return false;
         }
-        const size_t compareSize = value.size() - 8;
+        const size_t compareSize = value.size() - 13;
         if (expected.size() != compareSize)
         {
             KR_DEBUG_LOG_L10("\t|_ not approved");

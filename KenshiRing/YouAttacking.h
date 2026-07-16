@@ -27,7 +27,7 @@ if(HookExtension::fastRandom100() <= __CHANCE__ && HookExtension::compareStringF
     ADD_LOGIC_BEFORE_ATTACKING_NVBMA("#ArmorStrip", ArmorStrip, __NAME_COLOR__, __CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __DIR__, __DAMAGE__, __VICTIM__, __COMBAT_TECH__, __COMBO_ID__)\
     ADD_LOGIC_BEFORE_ATTACKING_NVBMA("#Amputator", Amputator,   __NAME_COLOR__, __CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __DIR__, __DAMAGE__, __VICTIM__, __COMBAT_TECH__, __COMBO_ID__)\
     ADD_LOGIC_BEFORE_ATTACKING_NVBMA("#LimbRipper", LimbRipper, __NAME_COLOR__, __CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __DIR__, __DAMAGE__, __VICTIM__, __COMBAT_TECH__, __COMBO_ID__)\
-
+    ADD_LOGIC_BEFORE_ATTACKING_NVBMA("#LimbRipper", LimbRipper, __NAME_COLOR__, __CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __DIR__, __DAMAGE__, __VICTIM__, __COMBAT_TECH__, __COMBO_ID__)\
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // атаки восстанавливают хп

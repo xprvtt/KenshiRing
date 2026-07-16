@@ -130,10 +130,13 @@ void overriddenChooseClothingItemFromList(lektor<GameData*>& lekGearOutput, Game
                 // секции типа attachSlot НЕ БУДУТ задействованы в экипировке
                 return;
             }
-            // шанс, что в секцию предмета займет "ВОЗДУХ"
-            if (quantity == 0)
+            else if (quantity == 0)
             {
-                quantity = INT_MIN;
+                // ванильное поведение
+                continue; // предмет есть в списке, не участвует
+
+                // кастомное
+                //quantity = INT_MIN; если включено, то секцию может занять "воздух"
             }
             validItemPull[&item] = secondInfoCloth(quantity, chance, item.ptr->idata["inventory footprint width"], item.ptr->idata["inventory footprint height"]);
         }
@@ -143,7 +146,7 @@ void overriddenChooseClothingItemFromList(lektor<GameData*>& lekGearOutput, Game
         KR_DEBUG_LOG_L4("Exit - overriddenChooseClothingItemFromList - validItemPull.empty()");
         return;
     }
-    // секции типа attachSlot размещены в порядке возрастания размера
+    // секции типа attachSlot размещены (должны быть)  в порядке возрастания размера
     const auto& sortSectionsType = KRI_GET_INSTANCE.getAllSectionForAttach(attachSlot);
 
     // шаг 1. выбираем всю подходящую одежду для каждой секций 
@@ -303,7 +306,7 @@ void fillSections(lektor<GameData*>& lekGearOutput, std::unordered_map<std::stri
                         //KR_DEBUG_LOG_L4("\t\t\t\t\t\t|_ - (Did not fit -> next) " + itAllItem->first->ptr->name + " | Chance : " + SuppKR::toStringV100(itemInfo->m_chance) + " | Remaining quantity:" + SuppKR::toStringV100(itemInfo->m_quantity));
                         continue; // предмет не поместился
                     }
-                    else if (itemInfo->m_quantity == INT_MIN)
+                    else if (itemInfo->m_quantity == INT_MIN)  // не наступит, на данный момент отключен учет предметов с начальным quantity = 0
                     {
                         // всё же в секции могут находится предметы выбранные ранее, если у секции лимит >1
                         // поэтому нужен временный пул tmpPull + возврат из него
@@ -322,7 +325,6 @@ void fillSections(lektor<GameData*>& lekGearOutput, std::unordered_map<std::stri
                         itLimit = currentSection->m_limit; // выход из цикла лимитов для секции
                         break;                             // выход из цикла предметов -> переход на след. секцию
                     }                        
-                    // нет учета предмета INT_MIN < m_quantity < 0
                     KR_DEBUG_LOG_L4("Item is not in the pull -> next");
                     continue; // чтобы не попасть в roll -= itemInfo->m_chance;
                 }
