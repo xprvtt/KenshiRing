@@ -199,7 +199,7 @@ ___
 ___
 
 <details>
-  <summary>FULL DESCRIPTION RUS</summary>
+  <summary>FULL DESCRIPTION OF EFFECTS RUS</summary>
 
 # ближний бой, атака<br/>
 
@@ -388,7 +388,7 @@ ___
 ___
 
 <details>
-  <summary>FULL DESCRIPTION EN</summary>
+  <summary>FULL DESCRIPTION OF EFFECTS EN</summary>
   
 # melee combat, attack<br/>
 
