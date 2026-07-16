@@ -14,6 +14,8 @@ Thanks to [Genpretz](https://github.com/Genpretz). Using his project with the ne
 
 15 new inventory sections added.
 
+Redesigned character clothing generation that allows filling all inventory slots if suitable clothing is available in the list.
+
 <details>
   <summary>Inventory</summary>
   
