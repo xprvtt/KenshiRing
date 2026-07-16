@@ -345,7 +345,13 @@ ___
 
 If you notice any incompatibility in these areas, please let me know.
 
+<details>
+  <summary>Gif</summary> 
 ![img1](https://github.com/xprvtt/KenshiRing/blob/main/Documents/Assets%20github/amputator.gif)
+![img1](https://github.com/xprvtt/KenshiRing/blob/main/Documents/Assets%20github/effect.gif)
+
+</details>
+
 
 ### disclaimer
 
