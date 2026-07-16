@@ -200,13 +200,6 @@ ___
 
 <details>
   <summary>FULL DESCRIPTION RUS</summary>
-  
-<br/>
-  Мод который добавляет предметам бафы и дебафы, а так же новые слоты
-
-  
-<details>
-    <summary>список эффектов</summary>
 
 # ближний бой, атака<br/>
 
@@ -390,11 +383,199 @@ ___
 В вас теперь находится душа демона, теперь при попадании, ваша душа перемешается в тело противника, любого противника, предыдущее ваше тело умирает<br/>
 свойства <шанс сработать - NONE><br/>
 
-
-  </details>
 </details>
 
 ___
+
+<details>
+  <summary>FULL DESCRIPTION EN</summary>
+  
+# melee combat, attack<br/>
+
+#Vampir <br/>
+Upon successfully hitting with a melee weapon, you restore some health, but not above the maximum amount<br/>
+properties <chance to trigger - strength in %><br/>
+
+#AbsolutePenetration<br/>
+Adds armor penetration to your melee weapon in addition to the existing penetration<br/>
+properties <chance to trigger - additional separate armor penetration %><br/>
+
+#DivineStrike<br/>
+A divine strike that crushes the victim from the inside<br/>
+properties <chance to trigger - % of damage from the victim's maximum health><br/>
+
+#AreaDamage<br/>
+Your attacks hit all body parts simultaneously<br/>
+properties <chance to trigger - % of your damage that will be dealt to all body parts><br/>
+
+#Disarmament<br/>
+Your strike is so powerful that it forcefully tears the enemy's weapon from their hands<br/>
+properties <chance to trigger - number of SECTIONS from which the weapon will be knocked out><br/>
+000 - 049 -> 1<br/>
+050 - 099 -> 2<br/>
+100 - 149 -> 3<br/>
+150 - 199 -> 4<br/>
+200 - 255 -> 5<br/>
+
+#ArmorStrip<br/>
+Your strike is so powerful that it tears apart the enemy's armor and clothing<br/>
+properties <chance to trigger - number of clothing pieces removed><br/>
+000 - 049  -> 1<br/>
+050 - 099  -> 2<br/>
+100 - 149  -> 3<br/>
+150 - 199  -> 4<br/>
+200 - 255  -> 5<br/>
+
+#LimbRipper<br/>
+Your weapon becomes so sharp that your attacks sever random limbs<br/>
+properties <chance to trigger - chance to sever an additional limb><br/>
+Guaranteed to sever a limb of those who have all 4 limbs<br/>
+If the enemy does not have all limbs, the attack may target a limb that has already been severed<br/>
+100-149 -> +1 additional limb severing attempt<br/>
+150-199 -> +2 additional limb severing attempts<br/>
+200-255 -> +3 additional limb severing attempts<br/>
+
+#Amputator <br/>
+You become such a crazed warrior that a single strike turns your enemy into a salad of limbs<br/>
+properties <chance to trigger - NONE><br/>
+
+# melee combat, defense<br/>
+
+#BladeMail<br/>
+You reflect part of the received damage back to the enemy's random body part<br/>
+properties <chance to trigger - % of received damage><br/>
+
+#DamageNullification<br/>
+You nullify part of the received damage<br/>
+properties <chance to trigger - % by which the damage is reduced><br/>
+
+#ClutchSurvival<br/>
+Your limbs regenerate when you are hit in melee combat and eventually cannot be damaged, but you receive increased damage<br/>
+properties <chance to trigger - % of increased damage taken><br/>
+
+#UntouchableSoul<br/>
+When you are attacked in melee combat, your soul leaves your body and moves toward the attacker, forcing their soul out of their body. You become the owner of the enemy's body, while your old body dies without a soul<br/>
+properties <chance to trigger - NONE><br/>
+
+# animal combat<br/>
+
+#Poisonous<br/>
+You become poisonous. Monsters that eat you will also receive damage<br/>
+properties <chance to trigger - damage strength><br/>
+
+#Paralysis<br/>
+Scorpion venom flows through your veins, paralyzing monsters that eat you for a period of time. You receive increased damage from being eaten<br/>
+properties <chance to trigger - increased duration, %><br/>
+
+#IronSkin<br/>
+You gain iron skin, making you much harder to eat<br/>
+properties <chance to trigger - reduction of eating damage, %><br/>
+
+#BeastRevival<br/>
+When your head is fully eaten, you receive a second chance at life in this world, but now inside the body of the animal that ate you<br/>
+properties <chance to trigger - NONE><br/>
+
+# healing yourself or others<br/>
+
+#DivineHealing<br/>
+You possess divine power that allows you to completely heal a patient<br/>
+properties <chance to trigger - activation chance><br/>
+Healing occurs every tick, so the method used by the game is called many times per second<br/>
+The second activation chance only compensates for it and does not guarantee that the healing will be applied, although the chances remain high. 0% means it will never activate<br/>
+
+#SoulDeadMedic<br/>
+When you heal, you receive a bonus to your healing skill<br/>
+properties <chance to trigger - additional level><br/>
+
+#BloodTransfusion<br/>
+When you heal, you give your own health to the person being healed in a slightly larger amount<br/>
+properties <chance to trigger - healing amplification for the patient><br/>
+
+#Bloodsucker<br/>
+You become a mad doctor who steals the patient's health, restoring it to yourself, even beyond maximum health<br/>
+properties <chance to trigger - stealing amplification><br/>
+
+#Nanites<br/>
+Your veins become filled with microrobots that repair worn robotic prosthetics without a repair bed<br/>
+properties <chance to trigger - regeneration amplification><br/>
+
+# receiving help from someone<br/>
+
+#CompliantPatient<br/>
+You are a compliant patient. Because of this, you have a chance to recover completely instantly<br/>
+properties <chance to trigger - activation chance><br/>
+
+#ViolentPatient<br/>
+You are an overly violent patient. You accidentally injure the person helping you and restore your own health much faster, even beyond maximum health<br/>
+properties <chance to trigger - health restoration amplification><br/>
+
+# ranged combat, defense<br/>
+
+#Bulletproof<br/>
+You become bulletproof. Projectiles only tickle you, and you restore health when hit<br/>
+properties <chance to trigger - % of maximum health restored><br/>
+
+# ranged combat, attack<br/>
+
+#SniperShot<br/>
+Your fired projectiles become so powerful that they deal massive additional damage to a random body part<br/>
+properties <chance to trigger - % of damage amplification from the target's maximum health><br/>
+
+#DivineShot<br/>
+Your shots carry divine wrath, dealing damage to all body parts regardless of armor<br/>
+properties <chance to trigger - % of damage amplification from the target's maximum health><br/>
+
+#CharmShot<br/>
+Your projectiles are poisoned and leave the target stunned after being hit<br/>
+properties <chance to trigger - NONE><br/>
+
+#ConversionShot<br/>
+You become a preacher of this world. Your shots convert enemies to fight on your side<br/>
+properties <chance to trigger - NONE><br/>
+
+#LifeStealingShot<br/>
+Your shots now steal health from the target, but not above maximum health<br/>
+properties <chance to trigger - stealing amplification><br/>
+
+#Bonebreaker<br/>
+Your shots tear apart random enemy limbs<br/>
+properties <chance to trigger - additional activation chance><br/>
+100 -> +1<br/>
+150 -> +2<br/>
+200 -> +3<br/>
+
+#SurgeonDream<br/>
+Your shots force enemies to leave the battle, just as a surgeon would do<br/>
+properties <chance to trigger - NONE><br/>
+
+#AnnihilatingShot<br/>
+Any creature you hit is annihilated<br/>
+properties <chance to trigger - chance to leave the victim alive><br/>
+
+#PainfulShot<br/>
+Your shots become painful both for the enemy and yourself<br/>
+properties <chance to trigger - increase in damage taken><br/>
+
+#BloodTollShot<br/>
+Your power comes with a price. With every shot, you may lose ALL limbs<br/>
+properties <chance to trigger - NONE><br/>
+
+#DemonsShotToll<br/>
+You pay for your shot with a random limb<br/>
+properties <chance to trigger - NONE><br/>
+
+#ShotWanderingSoul<br/>
+Your soul now moves into the body of the enemy you hit, but only if they are of your own race. Your previous body dies<br/>
+properties <chance to trigger - NONE><br/>
+
+#KhorneWanderingSoulShot<br/>
+A demon's soul now resides within you. When you hit an enemy, your soul moves into their body, regardless of their race. Your previous body dies<br/>
+properties <chance to trigger - NONE><br/>
+
+</details>
+
+___
+
 
 ### Сompatibility
   1. Fully compatible with mods that used "Extra Inventory Sections"
