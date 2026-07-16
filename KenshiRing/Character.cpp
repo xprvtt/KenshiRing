@@ -13,13 +13,28 @@
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 void (*Character_NV_init_orig)(Character* thisptr) = nullptr;
-void ensureExtraInventorySections(Inventory* inv, std::vector<ConfigIKR::PropertySectionKR> newSlots);
 void _NV_init_hook(Character* thisptr)
 {
     KR_DEBUG_LOG_L5("Call - _NV_init_hook");
 
     Character_NV_init_orig(thisptr);
-    ensureExtraInventorySections(thisptr->inventory, KRI_GET_INSTANCE.getNewSections());
+    if (!thisptr->inventory)
+    {
+        return;
+    }
+    const auto& newSec = KRI_GET_INSTANCE.getNewSections();
+    for (int it = 0; it < newSec.size(); it++)
+    {
+        auto currentSlot = newSec[it];
+        if (!thisptr->inventory->getSection(currentSlot.m_name))
+        {
+            if (!thisptr->inventory->_NV_initialiseNewSection(EMPLACE_SECTION_KR(currentSlot)))
+            {
+                KR_ERROR_LOG("\t\failed to create section " + currentSlot.m_name);
+                continue;
+            }
+        }
+    }
     KR_DEBUG_LOG_L5("Exit - _NV_init_hook");
 }
 
@@ -30,41 +45,7 @@ void ensureExtraInventorySections(Inventory* inv, std::vector<ConfigIKR::Propert
 {
     KR_DEBUG_LOG_L5("Call - ensureExtraInventorySections");
 
-    if (!inv)
-    {
-        KR_ERROR_LOG("\tensureExtraInventorySections: Inventory pointer missing or null");
-        return;
-    }
-    for (int it = 0; it < newSlots.size(); it++)
-    {
-        auto currentSlot = newSlots[it];
 
-        if (!inv->getSection(currentSlot.m_name))
-        {
-            // store returned pointer so we can validate and correct sizes if necessary
-            // Сохраняем возвращенный указатель, чтобы при необходимости проверить и скорректировать размеры. // нам это необходимо?
-            InventorySection* newSection = inv->_NV_initialiseNewSection(EMPLACE_SECTION_KR(currentSlot));
-
-            if (!newSection)
-            {
-                KR_ERROR_LOG("\t\tensureExtraInventorySections: failed to create section " + currentSlot.m_name);
-                continue;
-            }
-
-            // If the created section does not match expected dims, resize it.
-            // This avoids Array2d out-of-range access if constructor used swapped dims or other mismatch.
-            //if (newSection->width != currentSlot.m_sizeSection.m_width || newSection->height != currentSlot.m_sizeSection.m_height)
-            //{
-            //    std::ostringstream oss; 
-            //    oss <<  <<  <<  <<  <<  << newSection->height <<  << currentSlot.m_sizeSection.m_width << " x " << currentSlot.m_sizeSection.m_height << "). Resizing.";
-
-            //    KR_ERROR_LOG("ensureExtraInventorySections: section '" + currentSlot.m_name + "' created with unexpected size (got " 
-            //        + SuppKR::toStringV100(newSection->width) + " x " + SuppKR::toStringV100(newSection->height) + ", expected " + );
-
-            //    inv->resizeSection(newSection, currentSlot.m_sizeSection.m_width, currentSlot.m_sizeSection.m_height, true);
-            //}
-        }
-    }
     KR_DEBUG_LOG_L5("Exit - ensureExtraInventorySections");
 }
 
