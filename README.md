@@ -24,12 +24,23 @@ Thanks to [Genpretz](https://github.com/Genpretz). Using his project with the ne
   ![img](https://github.com/xprvtt/KenshiRing/blob/main/Documents/Assets%20github/ring.png)
 </details>
 
+
+<details>
+  <summary>Gif</summary> 
+  
+![img1](https://github.com/xprvtt/KenshiRing/blob/main/Documents/Assets%20github/amputator.gif)
+
+![img1](https://github.com/xprvtt/KenshiRing/blob/main/Documents/Assets%20github/effect.gif)
+
+</details>
+
+
 <details>
   <summary>Effects 0.0.1</summary>
   
 ___
 
-<p align="center">Agree</p>
+<p align="center">aggressiveness</p>
   
 #DeathGaze -> OFF
 
@@ -345,12 +356,6 @@ ___
 
 If you notice any incompatibility in these areas, please let me know.
 
-<details>
-  <summary>Gif</summary> 
-![img1](https://github.com/xprvtt/KenshiRing/blob/main/Documents/Assets%20github/amputator.gif)
-![img1](https://github.com/xprvtt/KenshiRing/blob/main/Documents/Assets%20github/effect.gif)
-
-</details>
 
 
 ### disclaimer
