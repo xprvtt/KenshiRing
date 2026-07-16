@@ -2,7 +2,7 @@
 
 A mod that adds new sections and various buffs and debuffs.
 
-Inspired by the ["Extra Inventory Sections"](https://www.nexusmods.com/kenshi/mods/1838) mod, this is a fork of it, featuring a complete overhaul. With the addition of effects for clothing items
+Inspired by the ["Extra Inventory Sections"](https://www.nexusmods.com/kenshi/mods/1838) mod.
 
 Thanks to [BFrizzleFoShizzle](https://github.com/BFrizzleFoShizzle) for the opportunity to create mods like this.
 Thanks to [Genpretz](https://github.com/Genpretz). Using his project with the new sections, I created my own.
