@@ -15,11 +15,11 @@ void setup()
 		// Вы можете сколько угодно добавлять таким путем слоты 
 		
 		//чтобы держать совместимость с уже существующими модами, которые использовали EIS
-		KRI_ADD_SECTION(ConfigIKR::PropertySectionKR("EIS_eyes_hats",  ConfigIKR::Size2D(3, 1), AttachSlot::ATTACH_HAT, true, false, true, 1));
-		KRI_ADD_SECTION(ConfigIKR::PropertySectionKR("EIS_eyes_eyes",  ConfigIKR::Size2D(3, 1), AttachSlot::ATTACH_EYES,    true, false, true, 1));
-		KRI_ADD_SECTION(ConfigIKR::PropertySectionKR("EIS_eyes_belts", ConfigIKR::Size2D(3, 1), AttachSlot::ATTACH_BELT,    true, false, true, 1));
-		KRI_ADD_SECTION(ConfigIKR::PropertySectionKR("EIS_neck",       ConfigIKR::Size2D(2, 2), AttachSlot::ATTACH_NECK,    true, false, true, 1));
-		KRI_ADD_SECTION(ConfigIKR::PropertySectionKR("EIS_gloves",     ConfigIKR::Size2D(2, 2), AttachSlot::ATTACH_GLOVES,  true, false, true, 4));
+		KRI_ADD_SECTION(ConfigIKR::PropertySectionKR("eyes_hats",  ConfigIKR::Size2D(3, 1), AttachSlot::ATTACH_HAT, true, false, true, 1));
+		KRI_ADD_SECTION(ConfigIKR::PropertySectionKR("eyes_eyes",  ConfigIKR::Size2D(3, 1), AttachSlot::ATTACH_EYES,    true, false, true, 1));
+		KRI_ADD_SECTION(ConfigIKR::PropertySectionKR("eyes_belts", ConfigIKR::Size2D(3, 1), AttachSlot::ATTACH_BELT,    true, false, true, 1));
+		KRI_ADD_SECTION(ConfigIKR::PropertySectionKR("neck",       ConfigIKR::Size2D(2, 2), AttachSlot::ATTACH_NECK,    true, false, true, 1));
+		KRI_ADD_SECTION(ConfigIKR::PropertySectionKR("gloves",     ConfigIKR::Size2D(2, 2), AttachSlot::ATTACH_GLOVES,  true, false, true, 4));
 
 		//// Kenshi ring
 		KRI_ADD_SECTION(ConfigIKR::PropertySectionKR("KR_hip",         ConfigIKR::Size2D(2, 2), AttachSlot::ATTACH_LEGS, true, false, true, 1));
