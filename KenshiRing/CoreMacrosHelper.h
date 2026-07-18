@@ -6,10 +6,6 @@
 
 //---------------------------------------------------------------------------------------------------------------
 
-
-
-//---------------------------------------------------------------------------------------------------------------
-
 // управление отладочной информацией
 //#define DEBUG 
 
@@ -53,7 +49,7 @@
 #define KR_RELEASE_LOG(__STRING_MESSAGE__) DebugLog(__STRING_MESSAGE__);
 #define KR_ERROR_LOG(__STRING_MESSAGE__) ErrorLog(__STRING_MESSAGE__);
 
-#define KR_LOG_CHECKPOINT KR_DEBUG_LOG("CHECKPOINT: " +SuppKR::GetFileNameInPath(__FILE__) + ", Fun: " + std::string(__FUNCTION__ ) + ", Line: " + SuppKR::toStringV100(__LINE__) + " -> Reached");
+#define KR_LOG_CHECKPOINT KR_DEBUG_LOG("CHECKPOINT: " + SuppKR::GetFileNameInPath(__FILE__) + ", Fun: " + std::string(__FUNCTION__ ) + ", Line: " + SuppKR::toStringV100(__LINE__) + " -> Reached");
 
 #ifdef DEBUG
 	#define KR_DEBUG_LOG(__STRING_MESSAGE__)       DebugLog(__STRING_MESSAGE__); // general
@@ -154,7 +150,7 @@
 #endif
 
 #ifndef KR_DEBUG_LOG_L11
-#define KR_DEBUG_LOG_L11(__STRING_MESSAGE__)  ((void)0);
+#define KR_DEBUG_LOG_L11(__STRING_MESSAGE__)  ((void)0);// InventoryLayout.cpp
 #endif
 
 #ifndef KR_DEBUG_LOG_L12
