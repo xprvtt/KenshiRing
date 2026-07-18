@@ -1,6 +1,6 @@
 # KenshiRing - KenshiLib Plugins
 
-A mod that adds new sections and various buffs and debuffs.
+A mod that adds new sections and various buffs and debuffs. [Mod page on Nexus](https://www.nexusmods.com/kenshi/mods/2059)
 
 Inspired by the ["Extra Inventory Sections"](https://www.nexusmods.com/kenshi/mods/1838) mod.
 
@@ -585,7 +585,6 @@ ___
 The mod uses its own hooks for in-game effects—specifically for melee and ranged attacks, when an animal or monster is eating you, and when you are healing someone.
 
 If you notice any incompatibility in these areas, please let me know.
-
 
 
 ### disclaimer
