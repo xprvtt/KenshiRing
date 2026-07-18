@@ -1,10 +1,12 @@
 /* 
-* 
 * Макросы для упрощения работы с хуками
-* 
 */
 
 #pragma once
+
+//---------------------------------------------------------------------------------------------------------------
+
+
 
 //---------------------------------------------------------------------------------------------------------------
 
@@ -51,30 +53,37 @@
 #define KR_RELEASE_LOG(__STRING_MESSAGE__) DebugLog(__STRING_MESSAGE__);
 #define KR_ERROR_LOG(__STRING_MESSAGE__) ErrorLog(__STRING_MESSAGE__);
 
+#define KR_LOG_CHECKPOINT KR_DEBUG_LOG("CHECKPOINT: " +SuppKR::GetFileNameInPath(__FILE__) + ", Fun: " + std::string(__FUNCTION__ ) + ", Line: " + SuppKR::toStringV100(__LINE__) + " -> Reached");
+
 #ifdef DEBUG
-	#define KR_DEBUG_LOG_L1(__STRING_MESSAGE__)    DebugLog(__STRING_MESSAGE__) // KenshiRing.cpp
-	#define KR_DEBUG_LOG_L2(__STRING_MESSAGE__)    DebugLog(__STRING_MESSAGE__) // Inventory.cpp
-	#define KR_DEBUG_LOG_L3_1(__STRING_MESSAGE__)  DebugLog(__STRING_MESSAGE__) // MedicalSystem.cpp
-	#define KR_DEBUG_LOG_L3_2(__STRING_MESSAGE__)  DebugLog(__STRING_MESSAGE__) // MedicalSystem.cpp
-	#define KR_DEBUG_LOG_L4(__STRING_MESSAGE__)    DebugLog(__STRING_MESSAGE__) // RootObjectFactory.cpp
-	#define KR_DEBUG_CODE_L4(__DEBUG_CODE__)       __DEBUG_CODE__;              // RootObjectFactory.cpp
-	#define KR_DEBUG_LOG_L5(__STRING_MESSAGE__)    DebugLog(__STRING_MESSAGE__) // Character.cpp
-	#define KR_DEBUG_LOG_L5_1(__STRING_MESSAGE__)  DebugLog(__STRING_MESSAGE__) // Character.cpp
-	#define KR_DEBUG_LOG_L5_2(__STRING_MESSAGE__)  DebugLog(__STRING_MESSAGE__) // Character.cpp
-	#define KR_DEBUG_LOG_L5_3(__STRING_MESSAGE__)  DebugLog(__STRING_MESSAGE__) // Character.cpp
-	#define KR_DEBUG_LOG_L5_4(__STRING_MESSAGE__)  DebugLog(__STRING_MESSAGE__) // Character.cpp
-	#define KR_DEBUG_LOG_L6(__STRING_MESSAGE__)    DebugLog(__STRING_MESSAGE__) // BaseLayout.cpp
-	#define KR_DEBUG_LOG_L7(__STRING_MESSAGE__)    DebugLog(__STRING_MESSAGE__) // InventoryKR.h
-	#define KR_DEBUG_LOG_L8(__STRING_MESSAGE__)    DebugLog(__STRING_MESSAGE__) // Setup.cpp
-	#define KR_DEBUG_LOG_L9(__STRING_MESSAGE__)    DebugLog(__STRING_MESSAGE__) // HookExtension.h
-	#define KR_DEBUG_LOG_L10(__STRING_MESSAGE__)   DebugLog(__STRING_MESSAGE__) // ConfigHookExtension.h
-	#define KR_DEBUG_CODE_L10(__DEBUG_CODE__);      __DEBUG_CODE__;             // ConfigHookExtension.h
-	#define KR_DEBUG_LOG_L11(__STRING_MESSAGE__)   DebugLog(__STRING_MESSAGE__) // InventoryLayout.cpp
-	#define KR_DEBUG_LOG_L12(__STRING_MESSAGE__)   DebugLog(__STRING_MESSAGE__) // available
-#endif
+	#define KR_DEBUG_LOG(__STRING_MESSAGE__)       DebugLog(__STRING_MESSAGE__); // general
+	#define KR_DEBUG_LOG_L1(__STRING_MESSAGE__)    DebugLog(__STRING_MESSAGE__); // KenshiRing.cpp
+	#define KR_DEBUG_LOG_L2(__STRING_MESSAGE__)    DebugLog(__STRING_MESSAGE__); // Inventory.cpp
+	#define KR_DEBUG_LOG_L3_1(__STRING_MESSAGE__)  DebugLog(__STRING_MESSAGE__); // MedicalSystem.cpp
+	#define KR_DEBUG_LOG_L3_2(__STRING_MESSAGE__)  DebugLog(__STRING_MESSAGE__); // MedicalSystem.cpp
+	#define KR_DEBUG_LOG_L4(__STRING_MESSAGE__)    DebugLog(__STRING_MESSAGE__); // RootObjectFactory.cpp
+	#define KR_DEBUG_CODE_L4(__DEBUG_CODE__)       __DEBUG_CODE__;               // RootObjectFactory.cpp
+	#define KR_DEBUG_LOG_L5(__STRING_MESSAGE__)    DebugLog(__STRING_MESSAGE__); // Character.cpp
+	#define KR_DEBUG_LOG_L5_1(__STRING_MESSAGE__)  DebugLog(__STRING_MESSAGE__); // Character.cpp
+	#define KR_DEBUG_LOG_L5_2(__STRING_MESSAGE__)  DebugLog(__STRING_MESSAGE__); // Character.cpp
+	#define KR_DEBUG_LOG_L5_3(__STRING_MESSAGE__)  DebugLog(__STRING_MESSAGE__); // Character.cpp
+	#define KR_DEBUG_LOG_L5_4(__STRING_MESSAGE__)  DebugLog(__STRING_MESSAGE__); // Character.cpp
+	#define KR_DEBUG_LOG_L6(__STRING_MESSAGE__)    DebugLog(__STRING_MESSAGE__); // BaseLayout.cpp
+	#define KR_DEBUG_LOG_L7(__STRING_MESSAGE__)    DebugLog(__STRING_MESSAGE__); // InventoryKR.h
+	#define KR_DEBUG_LOG_L8(__STRING_MESSAGE__)    DebugLog(__STRING_MESSAGE__); // Setup.cpp
+	#define KR_DEBUG_LOG_L9(__STRING_MESSAGE__)    DebugLog(__STRING_MESSAGE__); // HookExtension.h
+	#define KR_DEBUG_LOG_L10(__STRING_MESSAGE__)   DebugLog(__STRING_MESSAGE__); // ConfigHookExtension.h
+	#define KR_DEBUG_CODE_L10(__DEBUG_CODE__)      __DEBUG_CODE__;               // ConfigHookExtension.h
+	#define KR_DEBUG_LOG_L11(__STRING_MESSAGE__)   DebugLog(__STRING_MESSAGE__); // InventoryLayout.cpp
+	#define KR_DEBUG_LOG_L12(__STRING_MESSAGE__)   DebugLog(__STRING_MESSAGE__); // available
+#endif;
 
 //---------------------------------------------------------------------------------------------------------------
 // define off
+
+#ifndef KR_DEBUG_LOG
+#define KR_DEBUG_LOG(__STRING_MESSAGE__)   ((void)0);// KenshiRing.cpp
+#endif
 
 #ifndef KR_DEBUG_LOG_L1
 #define KR_DEBUG_LOG_L1(__STRING_MESSAGE__)   ((void)0);// KenshiRing.cpp
@@ -153,3 +162,5 @@
 #endif
 
 //---------------------------------------------------------------------------------------------------------------
+
+

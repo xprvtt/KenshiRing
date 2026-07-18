@@ -22,9 +22,16 @@ namespace HookExtension
         }
         KR_DEBUG_CODE_L10
         (
-          auto res = std::memcmp(expected.data(), value.data(), compareSize) == 0;
-          res ? KR_DEBUG_LOG_L10("\t|_  approved") : KR_DEBUG_LOG_L10("\t|_ not approved");
-          return res;
+            auto res = std::memcmp(expected.data(), value.data(), compareSize) == 0;
+            if (res)
+            {
+                KR_DEBUG_LOG_L10("\t|_  approved");
+            }
+            else
+            {
+                KR_DEBUG_LOG_L10("\t|_ not approved");
+            }
+            return res;
         )
         return std::memcmp(expected.data(), value.data(), compareSize) == 0;
     }

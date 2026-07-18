@@ -46,7 +46,11 @@
 #define ADD_LOGIC_BEFORE_THIT_NVBMA(__NAME_EFFECT__, __FUNCT__, __NAME_COLOR__, __CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __DIR__, __DAMAGE__, __WHO__, __COMBAT_TECH__, __COMBO_ID__) \
 if(HookExtension::fastRandom100() <= __CHANCE__ && HookExtension::compareStringForEffect(__NAME_EFFECT__, __NAME_COLOR__)) \
 { \
+    KR_DEBUG_LOG_L9("TRIGGER: " + __AUTO_ITEM__->getName() + " NAME: " + __NAME_EFFECT__)\
+    KR_DEBUG_LOG_L9("SELF CHARACTER:" + (__SELF__).myRace->data->name + " OTHER CHARACTER: " + (__WHO__).myRace->data->name)\
+    KR_LOG_CHECKPOINT;\
     __FUNCT__(__AUTO_MODIFICATOR__, __AUTO_ITEM__ , __SELF__, __DIR__, __DAMAGE__, __WHO__, __COMBAT_TECH__, __COMBO_ID__); \
+    KR_LOG_CHECKPOINT;\
     continue; \
 }
 

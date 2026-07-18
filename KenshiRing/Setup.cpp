@@ -61,6 +61,8 @@ void setup()
 		KR_RELEASE_LOG("Total new slots: " + SuppKR::toStringV100(KRI_GET_INSTANCE.getNewSections().size()));
 		KR_RELEASE_LOG("Total game slots: " + SuppKR::toStringV100(KRI_GET_INSTANCE.getGameSections().size()));
 		KRI_GET_INSTANCE.sortSections(); // необходимый костыль для формирования общего инвентаря
+
+		KR_RELEASE_LOG("KenshiRing - BUILD DATE: " + std::string(__DATE__) + ", TIME: " + std::string(__TIME__))
 	}
 	KR_DEBUG_LOG_L8("End of mod configuration");
 }

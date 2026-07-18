@@ -12,7 +12,10 @@
 #define ADD_LOGIC_BEFORE_AR(__NAME_EFFECT__, __FUNCT__, __NAME_COLOR__, __CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __SKILL__, __EQUIPMENT__, __FRAME_TIME__) \
 if(HookExtension::fastRandom100() <= __CHANCE__ && HookExtension::compareStringForEffect(__NAME_EFFECT__, __NAME_COLOR__)) \
 { \
+    KR_DEBUG_LOG_L9("TRIGGER: " + __AUTO_ITEM__->getName() + " NAME: " + __NAME_EFFECT__)\
+    KR_LOG_CHECKPOINT;\
     __FUNCT__(__AUTO_MODIFICATOR__,__AUTO_ITEM__,  __SELF__, __SKILL__, __EQUIPMENT__, __FRAME_TIME__); \
+    KR_LOG_CHECKPOINT;\
     continue; \
 }
 

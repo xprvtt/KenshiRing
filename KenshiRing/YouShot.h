@@ -5,7 +5,11 @@
 #define ADD_LOGIC_S(__NAME_EFFECT__, __FUNCT__, __NAME_COLOR__, __CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __VICTIM__, __HARPOON__, __ON_PURPOSE__, __HIT_TARGET__) \
 if(HookExtension::fastRandom100() <= __CHANCE__ && HookExtension::compareStringForEffect(__NAME_EFFECT__, __NAME_COLOR__)) \
 { \
+    KR_DEBUG_LOG_L9("TRIGGER: " + __AUTO_ITEM__->getName() + " NAME: " + __NAME_EFFECT__)\
+    KR_DEBUG_LOG_L9("SELF CHARACTER:" + (__SELF__).myRace->data->name + " OTHER CHARACTER: " + (__VICTIM__).myRace->data->name)\
+    KR_LOG_CHECKPOINT;\
     __FUNCT__(__AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __VICTIM__, __HARPOON__, __ON_PURPOSE__, __HIT_TARGET__); \
+    KR_LOG_CHECKPOINT;\
     continue; \
 }
 
@@ -35,7 +39,6 @@ if(HookExtension::fastRandom100() <= __CHANCE__ && HookExtension::compareStringF
 
 inline void SniperShot(const float modificatorEffect, Item * itemThatCaused, Character& victim, Character& attacker, Harpoon& poon, bool& onPurpose, const bool isHitTarget)
 {
-    KR_RELEASE_LOG(" (isHitTarget && onPurpose) " + SuppKR::toStringV100(isHitTarget) + SuppKR::toStringV100(onPurpose));
     if (isHitTarget && onPurpose)
     {
         auto& anatomy = victim.medical.anatomy;

@@ -6,6 +6,7 @@
 #include <Windows.h>
 #include <sstream>
 #include <string>
+#include <iostream>
 
 #pragma warning(disable : 4091)
 #pragma warning(disable : 4482)
@@ -66,6 +67,16 @@ namespace SuppKR //Support functions for Kenshi Ring Mod
             lek.maxSize = newSize;
         }
         lek.stuff[lek.count++] = val;
+    }
+
+    inline std::string GetFileNameInPath(const char* path)
+    {
+        const char* slash = strrchr(path, '\\');
+
+        if (slash)
+            return std::string(slash + 1);
+
+        return std::string(path);
     }
 }
 

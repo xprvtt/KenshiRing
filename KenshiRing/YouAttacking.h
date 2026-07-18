@@ -12,37 +12,41 @@
 #define ADD_LOGIC_BEFORE_ATTACKING_NVBMA(__NAME_EFFECT__, __FUNCT__, __NAME_COLOR__, __CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __DIR__, __DAMAGE__, __VICTIM__, __COMBAT_TECH__, __COMBO_ID__) \
 if(HookExtension::fastRandom100() <= __CHANCE__ && HookExtension::compareStringForEffect(__NAME_EFFECT__, __NAME_COLOR__)) \
 { \
+    KR_DEBUG_LOG_L9("TRIGGER: " + __AUTO_ITEM__->getName() + " NAME: " + __NAME_EFFECT__)\
+    KR_DEBUG_LOG_L9("SELF CHARACTER:" + (__SELF__).myRace->data->name + " OTHER CHARACTER: " + (__VICTIM__).myRace->data->name)\
+    KR_LOG_CHECKPOINT;\
     __FUNCT__(__AUTO_MODIFICATOR__,__AUTO_ITEM__, __SELF__, __DIR__, __DAMAGE__, __VICTIM__, __COMBAT_TECH__, __COMBO_ID__); \
+    KR_LOG_CHECKPOINT;\
     continue; \
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #define MAIN_MACROS_BEFORE_ATTACING_NV_HIT_BY_MELEE_ATTACK(__NAME_COLOR__, __CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __DIR__, __DAMAGE__, __VICTIM__, __COMBAT_TECH__, __COMBO_ID__) \
-    ADD_LOGIC_BEFORE_ATTACKING_NVBMA("#Vampir", vampir, __NAME_COLOR__, __CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __DIR__, __DAMAGE__, __VICTIM__, __COMBAT_TECH__, __COMBO_ID__) \
+    ADD_LOGIC_BEFORE_ATTACKING_NVBMA("#Vampir", vampir,             __NAME_COLOR__, __CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __DIR__, __DAMAGE__, __VICTIM__, __COMBAT_TECH__, __COMBO_ID__) \
     ADD_LOGIC_BEFORE_ATTACKING_NVBMA("#AbsolutePenetration", absolutePenetration, __NAME_COLOR__, __CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __DIR__, __DAMAGE__, __VICTIM__, __COMBAT_TECH__, __COMBO_ID__)\
     ADD_LOGIC_BEFORE_ATTACKING_NVBMA("#DivineStrike", divineStrike, __NAME_COLOR__, __CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __DIR__, __DAMAGE__, __VICTIM__, __COMBAT_TECH__, __COMBO_ID__)\
-    ADD_LOGIC_BEFORE_ATTACKING_NVBMA("#AreaDamage", areaDamage, __NAME_COLOR__, __CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __DIR__, __DAMAGE__, __VICTIM__, __COMBAT_TECH__, __COMBO_ID__)\
-    ADD_LOGIC_BEFORE_ATTACKING_NVBMA("#Disarmament", disarmament, __NAME_COLOR__, __CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __DIR__, __DAMAGE__, __VICTIM__, __COMBAT_TECH__, __COMBO_ID__)\
-    ADD_LOGIC_BEFORE_ATTACKING_NVBMA("#ArmorStrip", ArmorStrip, __NAME_COLOR__, __CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __DIR__, __DAMAGE__, __VICTIM__, __COMBAT_TECH__, __COMBO_ID__)\
-    ADD_LOGIC_BEFORE_ATTACKING_NVBMA("#Amputator", Amputator,   __NAME_COLOR__, __CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __DIR__, __DAMAGE__, __VICTIM__, __COMBAT_TECH__, __COMBO_ID__)\
-    ADD_LOGIC_BEFORE_ATTACKING_NVBMA("#LimbRipper", LimbRipper, __NAME_COLOR__, __CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __DIR__, __DAMAGE__, __VICTIM__, __COMBAT_TECH__, __COMBO_ID__)\
-    ADD_LOGIC_BEFORE_ATTACKING_NVBMA("#LimbRipper", LimbRipper, __NAME_COLOR__, __CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __DIR__, __DAMAGE__, __VICTIM__, __COMBAT_TECH__, __COMBO_ID__)\
+    ADD_LOGIC_BEFORE_ATTACKING_NVBMA("#AreaDamage", areaDamage,     __NAME_COLOR__, __CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __DIR__, __DAMAGE__, __VICTIM__, __COMBAT_TECH__, __COMBO_ID__)\
+    ADD_LOGIC_BEFORE_ATTACKING_NVBMA("#Disarmament", disarmament,   __NAME_COLOR__, __CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __DIR__, __DAMAGE__, __VICTIM__, __COMBAT_TECH__, __COMBO_ID__)\
+    ADD_LOGIC_BEFORE_ATTACKING_NVBMA("#ArmorStrip", ArmorStrip,     __NAME_COLOR__, __CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __DIR__, __DAMAGE__, __VICTIM__, __COMBAT_TECH__, __COMBO_ID__)\
+    ADD_LOGIC_BEFORE_ATTACKING_NVBMA("#Amputator", Amputator,       __NAME_COLOR__, __CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __DIR__, __DAMAGE__, __VICTIM__, __COMBAT_TECH__, __COMBO_ID__)\
+    ADD_LOGIC_BEFORE_ATTACKING_NVBMA("#LimbRipper", LimbRipper,     __NAME_COLOR__, __CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __DIR__, __DAMAGE__, __VICTIM__, __COMBAT_TECH__, __COMBO_ID__)\
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // атаки восстанавливают хп
 inline void vampir(const float modificatorEffect, Item * itemThatCaused, Character& me, CutDirection& dir, Damages& damage, Character& victim, CombatTechniqueData& attackTech, int& comboID)
 {
-    auto& anatomy = me.medical.anatomy;
+    const auto& anatomy = me.medical.anatomy;
 
     MedicalSystem::HealthPartStatus* selected = nullptr;
     uint32_t count = 0;
 
-    for (uint32_t i = 0; i < anatomy.size(); i++)
+    for (uint32_t i = 0; i < anatomy.count; i++)
     {
-        auto* limb = anatomy[i];
-        if (limb->fleshStun > 0 || selected->flesh < selected->_maxHealth)
+        auto limb = anatomy[i];
+        if (limb->fleshStun > 0 || limb->flesh < limb->_maxHealth)
         {
+            KR_RELEASE_LOG("limb name - " + limb->data->name);
             if (SuppKR::fastRandom(++count - 1) == 0)
             {
                 selected = limb;
