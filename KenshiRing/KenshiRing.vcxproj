@@ -165,6 +165,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="InventoryLayout.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="ConfigHookExtension.h" />
     <ClCompile Include="EnemyAttackTarget.h" />

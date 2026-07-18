@@ -14,7 +14,6 @@ class InventoryKR
 {
 public:
 
-
     static InventoryKR& instance()
     {
         static InventoryKR inst;

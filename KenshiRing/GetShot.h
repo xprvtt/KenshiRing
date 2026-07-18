@@ -1,6 +1,6 @@
 
 /*
-* _iShotYou_hook
+* iShotYouHook
 */
 
 #pragma once

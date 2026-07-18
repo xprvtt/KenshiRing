@@ -3,66 +3,66 @@
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //не использован
-bool (*applyFirstAid_orig)(MedicalSystem*, float, Item*, float, Character*) = nullptr;
-bool applyFirstAid_hook(MedicalSystem* thsptr, float skill, Item* equipment, float frameTIME, Character* who)
+bool (*applyFirstAidOrig)(MedicalSystem*, float, Item*, float, Character*) = nullptr;
+bool applyFirstAidHook(MedicalSystem* self, float skill, Item* equipment, float frameTime, Character* who)
 {
-    //KR_DEBUG_LOG_L3_1("Call - applyFirstAid_hook");
+    //KR_DEBUG_LOG_L3_1("Call - applyFirstAidHook");
 
-    auto ret = applyFirstAid_orig(thsptr, skill, equipment, frameTIME, who);
+    auto ret = applyFirstAidOrig(self, skill, equipment, frameTime, who);
 
-    //KR_DEBUG_LOG_L3_1("Exit - applyFirstAid_hook");
+    //KR_DEBUG_LOG_L3_1("Exit - applyFirstAidHook");
     return ret;
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-bool (*applyDoctoring_orig)(MedicalSystem*, float, Item*, float, Character*) = nullptr;
-bool applyDoctoring_hook(MedicalSystem* thsptr, float skill, Item* equipment, float frameTIME, Character* who)
+bool (*applyDoctoringOrig)(MedicalSystem*, float, Item*, float, Character*) = nullptr;
+bool applyDoctoringHook(MedicalSystem* self, float skill, Item* equipment, float frameTime, Character* who)
 {
-    KR_DEBUG_LOG_L3_1("Call - applyDoctoring_hook");
+    KR_DEBUG_LOG_L3_1("Call - applyDoctoringHook");
     KR_DEBUG_LOG_L3_1("------------------------------------------------");
 
     // проход по предметам того КТО хилить
-    FOR_EACH_COLOR(who, MAIN_MACROS_LOGIC_BEFORE_APLY__DOCTORING(__AUTO_NAME__, __AUTO_CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, *thsptr->me, skill, *equipment, frameTIME, *who));
+    FOR_EACH_COLOR(who, MAIN_MACROS_LOGIC_BEFORE_APLY__DOCTORING(__AUTO_NAME__, __AUTO_CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, *self->me, skill, *equipment, frameTime, *who));
 
     KR_DEBUG_LOG_L3_1("======");
 
     // проход по предметам того КОГО хилят
-    FOR_EACH_COLOR(thsptr->me, MAIN_MACROS_LOGIC_BEFORE_RECIEVED_APLY_DOCTORING(__AUTO_NAME__, __AUTO_CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, *thsptr->me, skill, *equipment, frameTIME, *who));
+    FOR_EACH_COLOR(self->me, MAIN_MACROS_LOGIC_BEFORE_RECIEVED_APLY_DOCTORING(__AUTO_NAME__, __AUTO_CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, *self->me, skill, *equipment, frameTime, *who));
 
     KR_DEBUG_LOG_L3_1("------------------------------------------------");
-    KR_DEBUG_LOG_L3_1("Exit - applyDoctoring_hook");
-    return  applyDoctoring_orig(thsptr, skill, equipment, frameTIME, who);
+    KR_DEBUG_LOG_L3_1("Exit - applyDoctoringHook");
+    return  applyDoctoringOrig(self, skill, equipment, frameTime, who);
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //не использован
-bool (*applyRigging_orig)(MedicalSystem*, float, Item*, float) = nullptr;
-bool applyRigging_hook(MedicalSystem* thsptr, float skill, Item* equipment, float frameTIME)
+bool (*applyRiggingOrig)(MedicalSystem*, float, Item*, float) = nullptr;
+bool applyRiggingHook(MedicalSystem* self, float skill, Item* equipment, float frameTime)
 {
-    KR_DEBUG_LOG_L3_2("Call - applyRigging_hook");
+    KR_DEBUG_LOG_L3_2("Call - applyRiggingHook");
 
     // проход по предметам того КОГО хилят
-    FOR_EACH_COLOR(thsptr->me, MAIN_MACROS_LOGIC_BEFORE_APLY_RIGGING(__AUTO_NAME__, __AUTO_CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, *thsptr->me, skill, *equipment, frameTIME));
+    FOR_EACH_COLOR(self->me, MAIN_MACROS_LOGIC_BEFORE_APLY_RIGGING(__AUTO_NAME__, __AUTO_CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, *self->me, skill, *equipment, frameTime));
  
 
-    KR_DEBUG_LOG_L3_2("Exit - applyRigging_hook");
-    return applyRigging_orig(thsptr, skill, equipment, frameTIME);
+    KR_DEBUG_LOG_L3_2("Exit - applyRiggingHook");
+    return applyRiggingOrig(self, skill, equipment, frameTime);
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //не использован
-void (*_NV_periodicUpdate_orig)(MedicalSystem*) = nullptr;
-void _NV_periodicUpdate_hook(MedicalSystem* thsptr)
+void (*NVPeriodicUpdateOrig)(MedicalSystem*) = nullptr;
+void NVPeriodicUpdateHook(MedicalSystem* self)
 {
-    //KR_DEBUG_LOG_L3_1("Call - _NV_periodicUpdate_hook");
+    //KR_DEBUG_LOG_L3_1("Call - NVPeriodicUpdateHook");
 
 
-    _NV_periodicUpdate_orig(thsptr);
+    NVPeriodicUpdateOrig(self);
 
-    //KR_DEBUG_LOG_L3_1("Exit - _NV_periodicUpdate_hook");
+    //KR_DEBUG_LOG_L3_1("Exit - NVPeriodicUpdateHook");
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------

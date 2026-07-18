@@ -16,25 +16,30 @@ struct secondInfoCloth
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
+std::unordered_map<std::string, std::unordered_map<GameDataReference*, secondInfoCloth*> >selectSuitableClothesForSections(const std::unordered_map<GameDataReference*, secondInfoCloth>& validItemPull, const std::set<ConfigIKR::PropertySectionKR>& sortSectionsType, const RaceData* race);
+void fillSections(lektor<GameData*>& lekGearOutput, std::unordered_map<std::string, std::unordered_map<GameDataReference*, secondInfoCloth*> >& clothesForAllSection, const std::set<ConfigIKR::PropertySectionKR>& sortSectionsType);
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
 // off
-GameData* (*_chooseClothingItemFromList_orig)(GameData* dataList, const std::string& listName, AttachSlot sectionAttach, RaceData* race) = nullptr;
-GameData* _chooseClothingItemFromList_hook(GameData* dataList, const std::string& listName, AttachSlot sectionAttach, RaceData* race)
+GameData* (*chooseClothingItemFromListOrig)(GameData* dataList, const std::string& listName, AttachSlot sectionAttach, RaceData* race) = nullptr;
+GameData* chooseClothingItemFromListHook(GameData* dataList, const std::string& listName, AttachSlot sectionAttach, RaceData* race)
 {
-    return _chooseClothingItemFromList_orig(dataList, listName, sectionAttach, race);
+    return chooseClothingItemFromListOrig(dataList, listName, sectionAttach, race);
 }
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 void overriddenChooseClothingItemFromList(lektor<GameData*>& gear, GameData* dataList, const std::string& listName, const RaceData* race, AttachSlot valid);
 
-void (*chooseMyClothing_orig)(lektor<GameData*>& gear, GameData* dataList, const std::string& listName, RaceData* race, bool noShoes) = nullptr;
-void chooseMyClothing_hook(lektor<GameData*>& gear, GameData* dataList, const std::string& listName, RaceData* race, bool noShoes)
+void (*chooseMyClothingOrig)(lektor<GameData*>& gear, GameData* dataList, const std::string& listName, RaceData* race, bool noShoes) = nullptr;
+void chooseMyClothingHook(lektor<GameData*>& gear, GameData* dataList, const std::string& listName, RaceData* race, bool noShoes)
 {
-    KR_DEBUG_LOG_L4("Call - chooseMyClothing_hook");
+    KR_DEBUG_LOG_L4("Call - chooseMyClothingHook");
 
     if (listName != "clothing")
     {
-        KR_DEBUG_LOG_L4("Exit - chooseMyClothing_hook - listName != clothing : " + listName);
+        KR_DEBUG_LOG_L4("Exit - chooseMyClothingHook - listName != clothing : " + listName);
         return;
     }
 
@@ -77,7 +82,7 @@ void chooseMyClothing_hook(lektor<GameData*>& gear, GameData* dataList, const st
     for (int it = 0; it < count; ++it)
     {
         // ванильное игровое поведение
-        // GameData* item = _chooseClothingItemFromList_orig(dataList, listName, *section, race);
+        // GameData* item = chooseClothingItemFromListOrig(dataList, listName, *section, race);
         // if (item)
         // {
         //     SuppKR::lektorPushBack(gear, item);
@@ -93,13 +98,11 @@ void chooseMyClothing_hook(lektor<GameData*>& gear, GameData* dataList, const st
             KR_DEBUG_LOG_L4(gear[i]->name);
         }
     );
-    KR_DEBUG_LOG_L4("Exit - chooseMyClothing_hook");
+    KR_DEBUG_LOG_L4("Exit - chooseMyClothingHook");
     KR_DEBUG_LOG_L4("----------------------------------------------------------------");
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
-std::unordered_map<std::string, std::unordered_map<GameDataReference*, secondInfoCloth*> >selectSuitableClothesForSections(const std::unordered_map<GameDataReference*, secondInfoCloth>& validItemPull, const std::set<ConfigIKR::PropertySectionKR>& sortSectionsType, const RaceData* race);
-void fillSections(lektor<GameData*>& lekGearOutput, std::unordered_map<std::string, std::unordered_map<GameDataReference*, secondInfoCloth*> >& clothesForAllSection, const std::set<ConfigIKR::PropertySectionKR>& sortSectionsType);
 
 void overriddenChooseClothingItemFromList(lektor<GameData*>& lekGearOutput, GameData* dataList, const std::string& listName, const RaceData* race, AttachSlot attachSlot)
 {

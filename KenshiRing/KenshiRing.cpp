@@ -15,7 +15,7 @@ __declspec(dllexport) void startPlugin()
     //=================================================
 
     #ifdef CHARACTER_NV_INIT
-    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&Character::_NV_init), &_NV_init_hook, &Character_NV_init_orig))
+    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&Character::_NV_init), &NVInitHook, &NVInitOrig))
     {
         KR_ERROR_LOG("Failure hooking Character::_NV_init.");
     }
@@ -25,7 +25,7 @@ __declspec(dllexport) void startPlugin()
     //=================================================
 
     #ifdef ROOTOBJECTFACTORY_CHOOSEMYCLOTHING
-    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&RootObjectFactory::chooseMyClothing), &chooseMyClothing_hook, &chooseMyClothing_orig))
+    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&RootObjectFactory::chooseMyClothing), &chooseMyClothingHook, &chooseMyClothingOrig))
     {
         KR_ERROR_LOG("Failure hooking RootObjectFactory::chooseMyClothing.");
     }
@@ -35,7 +35,7 @@ __declspec(dllexport) void startPlugin()
     //=================================================
 
     #ifdef ROOTOBJECTFACTORY_CHOOSECLOTHINGITEMFROMLIST
-    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&RootObjectFactory::_chooseClothingItemFromList), &_chooseClothingItemFromList_hook, &_chooseClothingItemFromList_orig))
+    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&RootObjectFactory::_chooseClothingItemFromList), &chooseClothingItemFromListHook, &chooseClothingItemFromListOrig))
     {
         KR_ERROR_LOG("Failure hooking RootObjectFactory::_chooseClothingItemFromList.");
     }
@@ -45,7 +45,7 @@ __declspec(dllexport) void startPlugin()
     //=================================================
 
     #ifdef INVENTORY_GETSECTIONOFTYPE
-    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&Inventory::getSectionOfType), &getSectionOfType_hook, &getSectionOfType_orig))
+    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&Inventory::getSectionOfType), &getSectionOfTypeHook, &getSectionOfTypeOrig))
     {
         KR_ERROR_LOG("Failure hooking Inventory::getSectionOfType.");
     }
@@ -55,7 +55,7 @@ __declspec(dllexport) void startPlugin()
     //=================================================
 
     #ifdef CHARACTER_NV_HITBYMELEEATTACK
-    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&Character::_NV_hitByMeleeAttack), &_NV_hitByMeleeAttack_hook, &_NV_hitByMeleeAttack_orig))
+    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&Character::_NV_hitByMeleeAttack), &NVHitByMeleeAttackHook, &NVHitByMeleeAttackOrig))
     {
         KR_ERROR_LOG("Failure hooking Character::_NV_hitByMeleeAttack.");
     }
@@ -65,7 +65,7 @@ __declspec(dllexport) void startPlugin()
     //=================================================
 
     #ifdef CHARACTER_NV_GETTINGEATEN
-    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&Character::_NV_gettingEaten), &_NV_gettingEaten_hook, &_NV_gettingEaten_orig))
+    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&Character::_NV_gettingEaten), &NVGettingEatenHook, &NVGettingEatenOrig))
     {
         KR_ERROR_LOG("Failure hooking Character::_NV_gettingEaten.");
     }
@@ -75,7 +75,7 @@ __declspec(dllexport) void startPlugin()
     //=================================================
 
     #ifdef CHARACTER_ATTACKTARGET
-    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&Character::attackTarget), &attackTarget_hook, &attackTarget_orig))
+    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&Character::attackTarget), &attackTargetHook, &attackTargetOrig))
     {
         KR_ERROR_LOG("Failure hooking Character::attackTarget.");
     }
@@ -85,7 +85,7 @@ __declspec(dllexport) void startPlugin()
     //=================================================
 
     #ifdef MEDICALSYSTEM_APPLYFIRSTAID
-    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&MedicalSystem::applyFirstAid), &applyFirstAid_hook, &applyFirstAid_orig))
+    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&MedicalSystem::applyFirstAid), &applyFirstAidHook, &applyFirstAidOrig))
     {
         KR_ERROR_LOG("Failure hooking MedicalSystem::applyFirstAid.");
     }
@@ -95,7 +95,7 @@ __declspec(dllexport) void startPlugin()
     //=================================================
 
     #ifdef MEDICALSYSTEM_APPLYDOCTORING
-    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&MedicalSystem::applyDoctoring), &applyDoctoring_hook, &applyDoctoring_orig))
+    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&MedicalSystem::applyDoctoring), &applyDoctoringHook, &applyDoctoringOrig))
     {
         KR_ERROR_LOG("Failure hooking MedicalSystem::applyDoctoring.");
     }
@@ -105,7 +105,7 @@ __declspec(dllexport) void startPlugin()
     //=================================================
 
     #ifdef MEDICALSYSTEM_APPLYRIGGING
-    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&MedicalSystem::applyRigging), &applyRigging_hook, &applyRigging_orig))
+    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&MedicalSystem::applyRigging), &applyRiggingHook, &applyRiggingOrig))
     {
         KR_ERROR_LOG("Failure hooking MedicalSystem::applyRigging.");
     }
@@ -115,7 +115,7 @@ __declspec(dllexport) void startPlugin()
     //=================================================
 
     #ifdef MEDICALSYSTEM_NV_PERIODICUPDATE
-    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&MedicalSystem::_NV_periodicUpdate), &_NV_periodicUpdate_hook, &_NV_periodicUpdate_orig))
+    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&MedicalSystem::_NV_periodicUpdate), &NVPeriodicUpdateHook, &NVPeriodicUpdateOrig))
     {
         KR_ERROR_LOG("Failure hooking MedicalSystem::_NV_periodicUpdate.");
     }
@@ -125,7 +125,7 @@ __declspec(dllexport) void startPlugin()
     //=================================================
 
     #ifdef CHARACTER_NV_UPDATE
-    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&Character::_NV_update), &_NV_update_hook, &_NV_update_orig))
+    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&Character::_NV_update), &NVUpdateHook, &NVUpdateOrig))
     {
         KR_ERROR_LOG("Failure hooking Character::_NV_update.");
     }
@@ -135,12 +135,23 @@ __declspec(dllexport) void startPlugin()
     //=================================================
 
     #ifdef CHARACTER_ISHOTYOU
-    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&Character::iShotYou), &_iShotYou_hook, &iShotYou_orig))
+    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&Character::iShotYou), &iShotYouHook, &iShotYouOrig))
     {
-        KR_ERROR_LOG("Failure hooking Character::_NV_update.");
+        KR_ERROR_LOG("Failure hooking Character::iShotYou.");
     }
-    KR_DEBUG_LOG_L1("Success load hook -> Character::_NV_update");
+    KR_DEBUG_LOG_L1("Success load hook -> Character::iShotYou");
     #endif // CHARACTER_ISHOTYOU
+
+    //=================================================
+    //InventoryLayout(const std::string & file);
+
+    #ifdef INVENTORYLAYOUT_CONSTRUCTOR
+    if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&InventoryLayout::_CONSTRUCTOR), &constructorHook, &constructorOrig))
+    {
+        KR_ERROR_LOG("Failure hooking &InventoryLayout::_CONSTRUCTOR");
+    }
+    KR_DEBUG_LOG_L1("Success load hook -> &InventoryLayout::_CONSTRUCTOR");
+    #endif // INVENTORYLAYOUT_CONSTRUCTOR
 
     //=================================================
 

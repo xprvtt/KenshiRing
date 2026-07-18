@@ -36,9 +36,6 @@
     <Filter Include="Source Files\Setup\CustomEffects\Medic\Doctoring">
       <UniqueIdentifier>{ae563092-6272-4db2-90dd-3c1aba7b1c1d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Setup\CustomEffects\Agree">
-      <UniqueIdentifier>{6ad8bd5a-dc97-41a1-8fa4-54b9195019a9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Setup\CustomEffects\Medic\Rigging">
       <UniqueIdentifier>{88dc5f90-584c-4a3c-af1b-ae0736fb05e7}</UniqueIdentifier>
     </Filter>
@@ -47,6 +44,9 @@
     </Filter>
     <Filter Include="Source Files\Setup\CustomEffects\Shot">
       <UniqueIdentifier>{cff30405-b464-46b8-989f-1c09a5436eb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Setup\CustomEffects\Aggressiv">
+      <UniqueIdentifier>{6ad8bd5a-dc97-41a1-8fa4-54b9195019a9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -87,7 +87,10 @@
       <Filter>Source Files\Setup\CustomEffects\Shot</Filter>
     </ClCompile>
     <ClCompile Include="EnemyAttackTarget.h">
-      <Filter>Source Files\Setup\CustomEffects\Agree</Filter>
+      <Filter>Source Files\Setup\CustomEffects\Aggressiv</Filter>
+    </ClCompile>
+    <ClCompile Include="InventoryLayout.cpp">
+      <Filter>Source Files\Hook\SourceHook</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

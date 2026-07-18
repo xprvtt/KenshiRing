@@ -1,6 +1,6 @@
 /*
 * NAME
-* Character.cpp - _NV_hitByMeleeAttack_hook 
+* Character.cpp - NVHitByMeleeAttackHook 
 * 
 * DEFINE
 * Character_NV_hitByMeleeAttack
