@@ -9,7 +9,7 @@
 //---------------------------------------------------------------------------------------------------------------
 
 // управление отладочной информацией
-//#define DEBUG 
+#define DEBUG 
 
 //---------------------------------------------------------------------------------------------------------------
 
@@ -69,11 +69,9 @@
 	#define KR_DEBUG_LOG_L9(__STRING_MESSAGE__)    DebugLog(__STRING_MESSAGE__) // HookExtension.h
 	#define KR_DEBUG_LOG_L10(__STRING_MESSAGE__)   DebugLog(__STRING_MESSAGE__) // ConfigHookExtension.h
 	#define KR_DEBUG_CODE_L10(__DEBUG_CODE__);      __DEBUG_CODE__;             // ConfigHookExtension.h
-	#define KR_DEBUG_LOG_L11(__STRING_MESSAGE__)   DebugLog(__STRING_MESSAGE__) // InventoryLayout
+	#define KR_DEBUG_LOG_L11(__STRING_MESSAGE__)   DebugLog(__STRING_MESSAGE__) // InventoryLayout.cpp
 	#define KR_DEBUG_LOG_L12(__STRING_MESSAGE__)   DebugLog(__STRING_MESSAGE__) // available
 #endif
-
-
 
 //---------------------------------------------------------------------------------------------------------------
 // define off
