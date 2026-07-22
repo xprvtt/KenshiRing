@@ -7,14 +7,15 @@ assignees: ''
 
 ---
 
-Install the latest version of the mod with logging (LOG) enabled.
+Сhecklist.
+Before creating an issue, I performed...
 
-Immediately after the error or crash, copy and attach the following logs to your report:
-Havok.log
-kenshi.log
-kenshi_info.log
-MyGUI.log
-RE_Kenshi_log.txt
-save.log
+□ Install the latest version of the mod with logging (LOG) enabled.
 
-If you restart the game, the logs will be overwritten.
+Immediately after the error or failure occurred, I copied and attached the following logs to my report:
+□ IHavok.log
+□ Ikenshi.log
+□ Ikenshi_info.log
+□ IMyGUI.log
+□ IRE_Kenshi_log.txt
+□ Isave.log
