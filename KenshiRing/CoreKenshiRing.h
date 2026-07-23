@@ -26,6 +26,7 @@
 #include <kenshi/Platoon.h>
 #include <kenshi/combat/CombatTechniqueData.h>
 #include <mygui/common/baselayout/BaseLayout.h>
+#include <kenshi/Appearance.h>
 
 #include "CoreMacrosHelper.h"
 

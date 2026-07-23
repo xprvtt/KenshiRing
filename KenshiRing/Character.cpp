@@ -16,7 +16,7 @@ void (*NVInitOrig)(Character* self) = nullptr;
 void NVInitHook(Character* self)
 {
     KR_DEBUG_LOG_L5("Call - NVInitHook");
-
+    
     NVInitOrig(self);
     if (!self->inventory)
     {

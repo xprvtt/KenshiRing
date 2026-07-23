@@ -7,7 +7,7 @@
 //---------------------------------------------------------------------------------------------------------------
 
 // управление отладочной информацией
-//#define DEBUG 
+#define DEBUG 
 
 //---------------------------------------------------------------------------------------------------------------
 
@@ -49,7 +49,8 @@
 #define KR_RELEASE_LOG(__STRING_MESSAGE__) DebugLog(__STRING_MESSAGE__);
 #define KR_ERROR_LOG(__STRING_MESSAGE__) ErrorLog(__STRING_MESSAGE__);
 
-#define KR_LOG_CHECKPOINT KR_DEBUG_LOG("CHECKPOINT: " + SuppKR::GetFileNameInPath(__FILE__) + ", Fun: " + std::string(__FUNCTION__ ) + ", Line: " + SuppKR::toStringV100(__LINE__) + " -> Reached");
+#define KR_LOGD_CHECKPOINT KR_DEBUG_LOG("CHECKPOINT: " + SuppKR::GetFileNameInPath(__FILE__) + ", Fun: " + std::string(__FUNCTION__ ) + ", Line: " + SuppKR::toStringV100(__LINE__) + " -> Reached");
+#define KR_LOG_CHECKPOINT_RELEASE KR_RELEASE_LOG("CHECKPOINT: " + SuppKR::GetFileNameInPath(__FILE__) + ", Fun: " + std::string(__FUNCTION__ ) + ", Line: " + SuppKR::toStringV100(__LINE__) + " -> Reached");
 
 #ifdef DEBUG
 	#define KR_DEBUG_LOG(__STRING_MESSAGE__)       DebugLog(__STRING_MESSAGE__); // general

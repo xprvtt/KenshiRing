@@ -49,18 +49,18 @@ void chooseMyClothingHook(lektor<GameData*>& gear, GameData* dataList, const std
 
     validSectionsInvertory[count++] = ATTACH_BACK;
     validSectionsInvertory[count++] = ATTACH_HAIR;
-    if (!race->noHats)
+    if (!race || !race->noHats)
     {
         validSectionsInvertory[count++] = ATTACH_HAT;
     }
     validSectionsInvertory[count++] = ATTACH_EYES;
     validSectionsInvertory[count++] = ATTACH_BODY;
     validSectionsInvertory[count++] = ATTACH_LEGS;
-    if (!race->noShirts)
+    if (!race || !race->noShirts)
     {
         validSectionsInvertory[count++] = ATTACH_SHIRT;
     }
-    if (!race->noShoes && !noShoes)
+    if (!race || !noShoes && !race->noShoes)
     {
         validSectionsInvertory[count++] = ATTACH_BOOTS;
     }
@@ -107,7 +107,7 @@ void chooseMyClothingHook(lektor<GameData*>& gear, GameData* dataList, const std
 void overriddenChooseClothingItemFromList(lektor<GameData*>& lekGearOutput, GameData* dataList, const std::string& listName, const RaceData* race, AttachSlot attachSlot)
 {
     // оптимизация (?)
-    if (!dataList) 
+    if (dataList == nullptr) 
     {
         KR_DEBUG_LOG_L4("Exit - overriddenChooseClothingItemFromList - dataList.empty()");
         return;
@@ -118,14 +118,20 @@ void overriddenChooseClothingItemFromList(lektor<GameData*>& lekGearOutput, Game
     // добавляем все предметы для слота
     Ogre::vector<GameDataReference>::type& listItem = dataList->objectReferences[listName];
 
-    KR_DEBUG_LOG_L4("\tITEM PULL FOR ATTACH: " + SuppKR::toStringV100(attachSlot));
-    for (Ogre::vector<GameDataReference>::type::iterator it = listItem.begin(); it != listItem.end(); ++it)
-    {
-        GameDataReference& item = *it;
 
+    KR_DEBUG_LOG_L4("\tITEM PULL FOR ATTACH: " + SuppKR::toStringV100(attachSlot));
+    for (size_t it = 0; it < listItem.size(); it++)
+    {
+        GameDataReference& item = listItem[it];
+
+        if (item.ptr == nullptr)
+        {
+            KR_ERROR_LOG("Item without GameData -> item.ptr == nullptr, Number GameDataReference: " + SuppKR::toStringV100(it) + ", SID: " + item.sid + ", TRIPLE VALUE: " + SuppKR::toStringV100(item.values[0]) + ", " + SuppKR::toStringV100(item.values[1]) + ", " + SuppKR::toStringV100(item.values[2]));
+            continue;
+        }
         if (item.ptr->idata["slot"] == attachSlot)
         {
-            int quantity = item.values[0];
+            const int quantity = item.values[0];
             const int chance = item.values[1];
 
             if (quantity < 0)
@@ -151,15 +157,17 @@ void overriddenChooseClothingItemFromList(lektor<GameData*>& lekGearOutput, Game
     }
     // секции типа attachSlot размещены (должны быть)  в порядке возрастания размера
     const auto& sortSectionsType = KRI_GET_INSTANCE.getAllSectionForAttach(attachSlot);
+    KR_LOGD_CHECKPOINT;
 
     // шаг 1. выбираем всю подходящую одежду для каждой секций 
     // секции sortSectionsType должны быть гарантированно размещены в порядке возрастания размера,
     // для того чтобы одежда гарантированно подобралась для всех секций, с которых и начнется заполнение
     auto clothesForAllSection = selectSuitableClothesForSections(validItemPull, sortSectionsType, race);
+    KR_LOGD_CHECKPOINT;
 
     // шаг 2 заполнить секции подходящими предметами
     fillSections(lekGearOutput, clothesForAllSection, sortSectionsType);
-
+    KR_LOGD_CHECKPOINT;
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -185,7 +193,7 @@ std::unordered_map<std::string, std::unordered_map<GameDataReference*, secondInf
             secondInfoCloth* infoItem = const_cast<secondInfoCloth*>(&itItem->second);
 
             auto& racesListExclude = currentItem->ptr->objectReferences["races exclude"];
-            if (racesListExclude.size())
+            if (racesListExclude.size() && race && race->data)
             {
                 for (auto itRace = racesListExclude.begin(); itRace != racesListExclude.end(); ++itRace)
                 {
@@ -197,7 +205,7 @@ std::unordered_map<std::string, std::unordered_map<GameDataReference*, secondInf
                 }
             }
             auto& racesList = currentItem->ptr->objectReferences["races"];
-            if (racesList.size())
+            if (racesList.size() && race && race->data)
             {
                 for (auto itRace = racesList.begin(); itRace != racesList.end(); ++itRace)
                 {

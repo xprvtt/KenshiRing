@@ -48,9 +48,9 @@ if(HookExtension::fastRandom100() <= __CHANCE__ && HookExtension::compareStringF
 { \
     KR_DEBUG_LOG_L9("TRIGGER: " + __AUTO_ITEM__->getName() + " NAME: " + __NAME_EFFECT__)\
     KR_DEBUG_LOG_L9("SELF CHARACTER:" + (__SELF__).myRace->data->name + " OTHER CHARACTER: " + (__WHO__).myRace->data->name)\
-    KR_LOG_CHECKPOINT;\
+    KR_LOGD_CHECKPOINT;\
     __FUNCT__(__AUTO_MODIFICATOR__, __AUTO_ITEM__ , __SELF__, __DIR__, __DAMAGE__, __WHO__, __COMBAT_TECH__, __COMBO_ID__); \
-    KR_LOG_CHECKPOINT;\
+    KR_LOGD_CHECKPOINT;\
     continue; \
 }
 
@@ -71,9 +71,9 @@ inline void bladeMail(const float modificatorEffect, Item* itemThatCaused, Chara
     newDamage.bleedMult         *= modificatorEffect;
     newDamage.blunt             *= modificatorEffect;
     newDamage.cut               *= modificatorEffect;
-    //newDamage.extraStun         *= modificatorEffect;
     newDamage.pierce            *= modificatorEffect;
     //newDamage.armourPenetration *= modificatorEffect;
+    //newDamage.extraStun         *= modificatorEffect;
 
     auto& anatomy = attacking.medical.anatomy;
     anatomy[SuppKR::fastRandom(anatomy.size() - 1)]->applyDamage(newDamage);
@@ -84,13 +84,12 @@ inline void bladeMail(const float modificatorEffect, Item* itemThatCaused, Chara
 // зануление урона
 inline void damageNullification(const float modificatorEffect, Item* itemThatCaused, Character& me, CutDirection& dir, Damages& damage, Character& attacking, CombatTechniqueData& attackTech, int& comboID)
 {
-    float null = std::max(1.0f - modificatorEffect, 0.f);
+    float mod = std::max(1.0f - modificatorEffect, 0.f);
     
-    damage.bleedMult *= null;
-    damage.blunt *= null;
-    damage.cut *= null;
-    damage.extraStun *= null;
-    damage.pierce *= null;
+    damage.bleedMult *= mod;
+    damage.blunt *= mod;
+    damage.cut *= mod;
+    damage.pierce *= mod;
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -138,7 +137,6 @@ inline void UntouchableSoul(const float modificatorEffect, Item* itemThatCaused,
     {
         anatomy[i]->applyDamage(Damages(100.f, 100.f, 100.f, 100.f, 100.f));
     }
-
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

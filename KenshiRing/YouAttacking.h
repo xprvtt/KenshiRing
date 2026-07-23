@@ -14,9 +14,9 @@ if(HookExtension::fastRandom100() <= __CHANCE__ && HookExtension::compareStringF
 { \
     KR_DEBUG_LOG_L9("TRIGGER: " + __AUTO_ITEM__->getName() + " NAME: " + __NAME_EFFECT__)\
     KR_DEBUG_LOG_L9("SELF CHARACTER:" + (__SELF__).myRace->data->name + " OTHER CHARACTER: " + (__VICTIM__).myRace->data->name)\
-    KR_LOG_CHECKPOINT;\
+    KR_LOGD_CHECKPOINT;\
     __FUNCT__(__AUTO_MODIFICATOR__,__AUTO_ITEM__, __SELF__, __DIR__, __DAMAGE__, __VICTIM__, __COMBAT_TECH__, __COMBO_ID__); \
-    KR_LOG_CHECKPOINT;\
+    KR_LOGD_CHECKPOINT;\
     continue; \
 }
 
@@ -46,7 +46,6 @@ inline void vampir(const float modificatorEffect, Item * itemThatCaused, Charact
         auto limb = anatomy[i];
         if (limb->fleshStun > 0 || limb->flesh < limb->_maxHealth)
         {
-            KR_RELEASE_LOG("limb name - " + limb->data->name);
             if (SuppKR::fastRandom(++count - 1) == 0)
             {
                 selected = limb;
@@ -77,7 +76,7 @@ inline void absolutePenetration(const float modificatorEffect, Item* itemThatCau
 // урон по телу
 inline void divineStrike(const float modificatorEffect, Item* itemThatCaused, Character& me, CutDirection& dir, Damages& damage, Character& victim, CombatTechniqueData& attackTech, int& comboID)
 {
-    auto& anatomy = victim.medical.anatomy;
+    const auto& anatomy = victim.medical.anatomy;
     for (uint32_t i = 0; i < anatomy.size(); i++)
     {
         anatomy[i]->fleshStun += anatomy[i]->_maxHealth * modificatorEffect;
@@ -115,24 +114,24 @@ inline void areaDamage(const float modificatorEffect, Item* itemThatCaused, Char
 // обезоружить
 inline void disarmament(const float modificatorEffect, Item* itemThatCaused, Character& me, CutDirection& dir, Damages& damage, Character& victim, CombatTechniqueData& attackTech, int& comboID)
 {
-    int level = std::min(5, static_cast<int>(modificatorEffect * 100.0f) / 50 + 1);
+    int level = std::min(5, static_cast<int>(modificatorEffect * 100.f / 50.f) + 1);
 
-    auto& allSec = victim.inventory->sections;
-    for (auto i = allSec.begin(); i != allSec.end(); i++)
+    lektor<InventorySection*> allSec;
+    victim.inventory->getAllSectionsOfType(allSec, AttachSlot::ATTACH_WEAPON);
+    const auto size = allSec.size();
+
+    for (uint32_t itSec = 0; itSec < size; itSec++)
     {
-        if (i->second->limitedSlot == AttachSlot::ATTACH_WEAPON)
+        auto& items = allSec[itSec]->items;
+        const auto countItems = items.size();
+
+        for (size_t itItem = 0; itItem < countItems; itItem++)
         {
-            auto& items = i->second->items;
-            for (size_t it = 0; it < items.size(); it++)
-            {
-                InventorySection::SectionItem& item = items[it];
-                victim.inventory->dropItem(item.item);
-            }
-            level--;
-            if (!level)
-            {
-                return;
-            }
+            victim.inventory->dropItem(items[itItem].item);
+        }
+        if (!--level)
+        {
+            return;
         }
     }
 }
@@ -143,21 +142,18 @@ inline void disarmament(const float modificatorEffect, Item* itemThatCaused, Cha
 // снять 1 броню
 inline void ArmorStrip(const float modificatorEffect, Item* itemThatCaused, Character& me, CutDirection& dir, Damages& damage, Character& victim, CombatTechniqueData& attackTech, int& comboID)
 {
-    int count = static_cast<int>(modificatorEffect * 2.0f) + 1;
-    if (count > 5)
+    int countStrip = std::min(static_cast<int>(modificatorEffect * 2.0f) + 1, 5);
+    lektor<Item*> allItem;
+    for (size_t i = 0; i < countStrip; i++)
     {
-        count = 5;
-    }
-    for (size_t i = 0; i < count; i++)
-    {
-        lektor<Item*> allIt;
-        victim.inventory->getEquippedArmour(allIt);
-        if (allIt.size() == 0)
+        victim.inventory->getEquippedArmour(allItem);
+        if (allItem.size() == 0)
         {
             break;
         }
-        Item* item = allIt[SuppKR::fastRandom(allIt.size() - 1)];
+        Item* item = allItem[SuppKR::fastRandom(allItem.size() - 1)];
         victim.inventory->dropItem(item);
+        allItem.clear();
     }
 }
 
@@ -165,16 +161,17 @@ inline void ArmorStrip(const float modificatorEffect, Item* itemThatCaused, Char
 
 inline void LimbRipper(const float modificatorEffect, Item* itemThatCaused, Character& me, CutDirection& dir, Damages& damage, Character& victim, CombatTechniqueData& attackTech, int& comboID)
 {
-    victim.medical.amputate(HookExtension::amputateList[SuppKR::fastRandom(HookExtension::sizeAmputateList)], true, Ogre::Vector3(1.f, 1.f, 1.f));
+    const Ogre::Vector3 force(1.f, 1.f, 1.f);
+    victim.medical.amputate(HookExtension::amputateList[SuppKR::fastRandom(HookExtension::sizeAmputateList)], true, force);
     if (modificatorEffect >= 1.f)
     {
-        victim.medical.amputate(HookExtension::amputateList[SuppKR::fastRandom(HookExtension::sizeAmputateList)], true, Ogre::Vector3(1.f, 1.f, 1.f));
+        victim.medical.amputate(HookExtension::amputateList[SuppKR::fastRandom(HookExtension::sizeAmputateList)], true, force);
         if (modificatorEffect >= 1.5f)
         {
-            victim.medical.amputate(HookExtension::amputateList[SuppKR::fastRandom(HookExtension::sizeAmputateList)], true, Ogre::Vector3(1.f, 1.f, 1.f));
+            victim.medical.amputate(HookExtension::amputateList[SuppKR::fastRandom(HookExtension::sizeAmputateList)], true, force);
             if (modificatorEffect >= 2.f)
             {
-                victim.medical.amputate(HookExtension::amputateList[SuppKR::fastRandom(HookExtension::sizeAmputateList)], true, Ogre::Vector3(1.f, 1.f, 1.f));
+                victim.medical.amputate(HookExtension::amputateList[SuppKR::fastRandom(HookExtension::sizeAmputateList)], true, force);
             }
         }
     }
@@ -184,10 +181,11 @@ inline void LimbRipper(const float modificatorEffect, Item* itemThatCaused, Char
 
 inline void Amputator(const float modificatorEffect, Item* itemThatCaused, Character& me, CutDirection& dir, Damages& damage, Character& victim, CombatTechniqueData& attackTech, int& comboID)
 {
-    victim.medical.amputate(RobotLimbs::Limb::LEFT_ARM, true, Ogre::Vector3(1.f, 1.f, 1.f));
-    victim.medical.amputate(RobotLimbs::Limb::LEFT_LEG, true, Ogre::Vector3(1.f, 1.f, 1.f));
-    victim.medical.amputate(RobotLimbs::Limb::RIGHT_ARM, true, Ogre::Vector3(1.f, 1.f, 1.f));
-    victim.medical.amputate(RobotLimbs::Limb::RIGHT_LEG, true, Ogre::Vector3(1.f, 1.f, 1.f));
+    const Ogre::Vector3 force(1.f, 1.f, 1.f);
+    victim.medical.amputate(RobotLimbs::Limb::LEFT_ARM, true,  force);
+    victim.medical.amputate(RobotLimbs::Limb::LEFT_LEG, true,  force);
+    victim.medical.amputate(RobotLimbs::Limb::RIGHT_ARM, true, force);
+    victim.medical.amputate(RobotLimbs::Limb::RIGHT_LEG, true, force);
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

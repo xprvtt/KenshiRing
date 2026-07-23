@@ -13,9 +13,9 @@ if(HookExtension::fastRandom100() <= __CHANCE__ && HookExtension::compareStringF
 { \
     KR_DEBUG_LOG_L9("TRIGGER: " + __AUTO_ITEM__->getName() + " NAME: " + __NAME_EFFECT__)\
     KR_DEBUG_LOG_L9("SELF CHARACTER:" + (__SELF__).myRace->data->name + " OTHER CHARACTER: " + (__WHO__).myRace->data->name)\
-    KR_LOG_CHECKPOINT;\
+    KR_LOGD_CHECKPOINT;\
     __FUNCT__(__AUTO_MODIFICATOR__,__AUTO_ITEM__, __SELF__, __DAMAGE__, __WHO__); \
-    KR_LOG_CHECKPOINT;\
+    KR_LOGD_CHECKPOINT;\
     continue; \
 }
 
@@ -32,10 +32,10 @@ if(HookExtension::fastRandom100() <= __CHANCE__ && HookExtension::compareStringF
 // отражение урона
 inline void poisonous(const float modificatorEffect, Item * itemThatCaused, Character& me, float& amount, Character& devouring)
 {
-    auto& an1 = devouring.medical.anatomy;
-    for (uint32_t i = 0; i < an1.size(); i++)
+    auto& anatomy = devouring.medical.anatomy;
+    for (uint32_t i = 0; i < anatomy.size(); i++)
     {
-        an1[i]->fleshStun += (10.f * modificatorEffect) / 100.f;
+        anatomy[i]->fleshStun += (10.f * modificatorEffect) / 100.f;
     }
 }
 
@@ -53,7 +53,7 @@ inline void paralysis(const float modificatorEffect, Item* itemThatCaused, Chara
 
 inline void ironSkin(const float modificatorEffect, Item* itemThatCaused, Character& me, float& amount, Character& devouring)
 {
-    amount *= (1.0f - std::max(modificatorEffect, 1.f));
+    amount *= (1.f - std::max(modificatorEffect, 1.f));
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

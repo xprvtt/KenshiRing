@@ -155,4 +155,9 @@ __declspec(dllexport) void startPlugin()
 
     //=================================================
 
+    ////void _NV_setupCharacterEntityTexture(Ogre::Entity * ent, const boost::unordered::unordered_map<std::string, std::string, boost::hash<std::string >, std::equal_to<std::string >, Ogre::STLAllocator<std::pair<std::string const, std::string >, Ogre::GeneralAllocPolicy > >&textureLayers, Ogre::ColourValue * colour);// protected RVA = 0x52B340 vtable offset = 0x60
+
+    //KenshiLib::AddHook(KenshiLib::GetRealAddress(&AppearanceHuman::_NV_setupCharacterEntityTexture), &constructorHook, &constructorOrig)
+
 }
+
