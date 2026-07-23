@@ -77,7 +77,7 @@ void chooseMyClothingHook(lektor<GameData*>& gear, GameData* dataList, const std
     //ATTACH_LEFT_LEG,  no valid attach
     //ATTACH_RIGHT_LEG, no valid attach
 
-    KR_DEBUG_LOG_L4("SELECTING ITEMS FOR A RACE: " + race->data->name);
+    KR_DEBUG_LOG_L4("SELECTING ITEMS FOR A RACE: " + (race ? race->data->name : "race == nullptr"));
 
     for (int it = 0; it < count; ++it)
     {
