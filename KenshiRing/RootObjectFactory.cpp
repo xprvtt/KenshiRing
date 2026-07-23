@@ -148,6 +148,7 @@ void overriddenChooseClothingItemFromList(lektor<GameData*>& lekGearOutput, Game
                 //quantity = INT_MIN; если включено, то секцию может занять "воздух"
             }
             validItemPull[&item] = secondInfoCloth(quantity, chance, item.ptr->idata["inventory footprint width"], item.ptr->idata["inventory footprint height"]);
+            KR_DEBUG_LOG_L4("\tAdded: " + item.ptr->name);
         }
     }
     if (validItemPull.empty())
@@ -155,6 +156,8 @@ void overriddenChooseClothingItemFromList(lektor<GameData*>& lekGearOutput, Game
         KR_DEBUG_LOG_L4("Exit - overriddenChooseClothingItemFromList - validItemPull.empty()");
         return;
     }
+    KR_LOGD_CHECKPOINT;
+
     // секции типа attachSlot размещены (должны быть)  в порядке возрастания размера
     const auto& sortSectionsType = KRI_GET_INSTANCE.getAllSectionForAttach(attachSlot);
     KR_LOGD_CHECKPOINT;
