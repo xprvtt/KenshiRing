@@ -106,6 +106,8 @@ void chooseMyClothingHook(lektor<GameData*>& gear, GameData* dataList, const std
 
 void overriddenChooseClothingItemFromList(lektor<GameData*>& lekGearOutput, GameData* dataList, const std::string& listName, const RaceData* race, AttachSlot attachSlot)
 {
+    KR_DEBUG_LOG_L4("Call - overriddenChooseClothingItemFromList");
+
     // оптимизация (?)
     if (dataList == nullptr) 
     {
@@ -170,7 +172,8 @@ void overriddenChooseClothingItemFromList(lektor<GameData*>& lekGearOutput, Game
 
     // шаг 2 заполнить секции подходящими предметами
     fillSections(lekGearOutput, clothesForAllSection, sortSectionsType);
-    KR_LOGD_CHECKPOINT;
+
+    KR_DEBUG_LOG_L4("Exit - overriddenChooseClothingItemFromList");
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -178,6 +181,8 @@ void overriddenChooseClothingItemFromList(lektor<GameData*>& lekGearOutput, Game
 std::unordered_map<std::string, std::unordered_map<GameDataReference*, secondInfoCloth*> >selectSuitableClothesForSections( const std::unordered_map<GameDataReference*, secondInfoCloth>& validItemPull, const std::set<ConfigIKR::PropertySectionKR>& sortSectionsType, const RaceData* race)
 {
     // оптимизация (?)
+    KR_DEBUG_LOG_L4("Call - selectSuitableClothesForSections");
+
 
     std::unordered_map<std::string, std::unordered_map<GameDataReference*, secondInfoCloth*> > clothesForAllSection;
 
@@ -233,6 +238,8 @@ std::unordered_map<std::string, std::unordered_map<GameDataReference*, secondInf
             }
         }
     }
+
+    KR_DEBUG_LOG_L4("Exit - selectSuitableClothesForSections");
     return clothesForAllSection;
 }
 
@@ -240,6 +247,8 @@ std::unordered_map<std::string, std::unordered_map<GameDataReference*, secondInf
 
 void fillSections(lektor<GameData*>& lekGearOutput, std::unordered_map<std::string, std::unordered_map<GameDataReference*, secondInfoCloth*> >& clothesForAllSection, const std::set<ConfigIKR::PropertySectionKR>& sortSectionsType)
 {
+    KR_DEBUG_LOG_L4("Call - fillSections");
+
     // проход по секциям
     for (std::unordered_map<std::string, std::unordered_map<GameDataReference*, secondInfoCloth*> >::iterator iterSection = clothesForAllSection.begin(); iterSection != clothesForAllSection.end(); ++iterSection)
     {
@@ -345,7 +354,7 @@ void fillSections(lektor<GameData*>& lekGearOutput, std::unordered_map<std::stri
                 KR_DEBUG_CODE_L4(
                 else
                 {
-                    //KR_DEBUG_LOG_L4("The item did not drop -> next");
+                    KR_DEBUG_LOG_L4("The item did not drop -> next");
                 }
                 )
                 // без else иначе бы секция могла оказаться пустой даже если есть предметы под него
@@ -360,6 +369,8 @@ void fillSections(lektor<GameData*>& lekGearOutput, std::unordered_map<std::stri
             tmpPull.clear();
         }
     }
+
+    KR_DEBUG_LOG_L4("Exit - fillSections");
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
