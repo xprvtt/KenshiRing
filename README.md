@@ -1,6 +1,6 @@
 # KenshiRing - KenshiLib Plugins
 
-A mod that adds new sections and various buffs and debuffs.
+A mod that adds new sections and various buffs and debuffs. [Mod page on Nexus](https://www.nexusmods.com/kenshi/mods/2059)
 
 Inspired by the ["Extra Inventory Sections"](https://www.nexusmods.com/kenshi/mods/1838) mod.
 
@@ -586,7 +586,19 @@ The mod uses its own hooks for in-game effects—specifically for melee and rang
 
 If you notice any incompatibility in these areas, please let me know.
 
+If exceptions, crashes, or errors occur, download the latest version with logging enabled and attach the following logs when reporting the issue:
 
+Havok.log
+
+kenshi.log
+
+kenshi_info.log
+
+MyGUI.log
+
+RE_Kenshi_log.txt
+
+save.log
 
 ### disclaimer
 
