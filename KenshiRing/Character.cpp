@@ -69,11 +69,11 @@ HitMaterialType NVHitByMeleeAttackHook(Character* self, CutDirection dir, Damage
     KR_DEBUG_LOG_L5_1(" ");
 
     KR_DEBUG_LOG_L5_1("victim");
-
-    // проход по бафам пострадавшего
     FOR_EACH_COLOR(self, MAIN_MACROS_BEFORE_THIT_NV_HIT_BY_MELEE_ATTACK(__AUTO_NAME__, __AUTO_CHANCE__, __AUTO_MODIFICATOR__, __AUTO_ITEM__, *self, dir, damage, *who, *attack, comboID));
 
     HitMaterialType returnVal = NVHitByMeleeAttackOrig(self, dir, damage, who, attack, comboID);
+
+    // проход по бафам пострадавшего
 
     KR_DEBUG_LOG_L5_1(" ");
 

@@ -13,7 +13,6 @@ if(HookExtension::fastRandom100() <= __CHANCE__ && HookExtension::compareStringF
 { \
     KR_DEBUG_LOG_L9("TRIGGER: " + __AUTO_ITEM__->getName() + " NAME: " + __NAME_EFFECT__)\
     KR_DEBUG_LOG_L9("SELF CHARACTER:" + (__SELF__).myRace->data->name + " OTHER CHARACTER: " + (__ATTAKCER__).myRace->data->name)\
-    KR_LOGD_CHECKPOINT;\
     __FUNCT__(__AUTO_MODIFICATOR__,__AUTO_ITEM__,  __SELF__, __ATTAKCER__, __HARPOON__, __ON_PURPOSE__, __HIT_TARGET__); \
     KR_LOGD_CHECKPOINT;\
     continue; \
@@ -37,10 +36,16 @@ inline void Bulletproof(const float modificatorEffect, Item * itemThatCaused, Ch
     if (isHitTarget)
     {
         auto& anatomy = me.medical.anatomy;
+        auto valFS = 20.f * modificatorEffect;
         for (uint32_t i = 0; i < anatomy.size(); i++)
         {
-            anatomy[i]->fleshStun -= 20.f * modificatorEffect;
+            anatomy[i]->fleshStun -= valFS;
             anatomy[i]->flesh += anatomy[i]->_maxHealth * modificatorEffect;
+
+            if (anatomy[i]->flesh > anatomy[i]->_maxHealth)
+            {
+                anatomy[i]->flesh = anatomy[i]->_maxHealth;
+            }
         }
     }
 }

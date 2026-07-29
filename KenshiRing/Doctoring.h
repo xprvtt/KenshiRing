@@ -14,7 +14,6 @@ if(HookExtension::fastRandom100() <= __CHANCE__ && HookExtension::compareStringF
 { \
     KR_DEBUG_LOG_L9("TRIGGER: " + __AUTO_ITEM__->getName() + " NAME: " + __NAME_EFFECT__)\
     KR_DEBUG_LOG_L9("SELF CHARACTER:" + (__SELF__).myRace->data->name + " OTHER CHARACTER: " + (__WHO__).myRace->data->name)\
-    KR_LOGD_CHECKPOINT;\
     __FUNCT__(__AUTO_MODIFICATOR__, __AUTO_ITEM__, __SELF__, __SKILL__, __EQUIPMENT__, __FRAME_TIME__, __WHO__); \
     KR_LOGD_CHECKPOINT;\
     continue; \
@@ -53,25 +52,30 @@ inline void soulDeadMedic(const float modificatorEffect, Item* itemThatCaused, C
 
 inline void bloodTransfusion(const float modificatorEffect, Item* itemThatCaused, Character& wounded, float& skill, Item& equipment, float& frameTIME, Character& whoDoctoring)
 {
-    auto& an1 = whoDoctoring.medical.anatomy;
-    for (uint32_t i = 0; i < an1.size(); i++)
+    if (&wounded == &whoDoctoring)
     {
-        an1[i]->flesh -= 0.01f;
+        return;
     }
+    auto val = (115.f * modificatorEffect) / 1000.f;
+
     auto& an2 = wounded.medical.anatomy;
     for (uint32_t i = 0; i < an2.size(); i++)
     {
         auto& fl = an2[i]->flesh;
         auto& flS = an2[i]->fleshStun;
-
         if (fl < an2[i]->_maxHealth)
         {
-            fl += (115.f * modificatorEffect) / 1000.f;
+            fl += val;
         }
         if (flS > 0.f)
         {
-            flS -= (115.f * modificatorEffect) / 1000.f;
+            flS -= val;
         }
+    }
+    auto& an1 = whoDoctoring.medical.anatomy;
+    for (uint32_t i = 0; i < an1.size(); i++)
+    {
+        an1[i]->flesh -= 0.01f;
     }
 }
 
@@ -79,16 +83,22 @@ inline void bloodTransfusion(const float modificatorEffect, Item* itemThatCaused
 
 inline void bloodsucker(const float modificatorEffect, Item* itemThatCaused, Character& wounded, float& skill, Item& equipment, float& frameTIME, Character& whoDoctoring)
 {
+    if (&wounded == &whoDoctoring)
+    {
+        return;
+    }
     auto& an1 = whoDoctoring.medical.anatomy;
+    auto val = (147.f * modificatorEffect) / 10000.f;
+
     for (uint32_t i = 0; i < an1.size(); i++)
     {
-        an1[i]->flesh += (100.f * modificatorEffect) / 10000.f;
-        an1[i]->fleshStun -= (100.f * modificatorEffect) / 10000.f;
+        an1[i]->flesh += val;
+        an1[i]->fleshStun -= val;
     }
     auto& an2 = wounded.medical.anatomy;
     for (uint32_t i = 0; i < an2.size(); i++)
     {
-        an2[i]->flesh -= 0.07f;
+        an2[i]->flesh -= 0.35f;
     }
 }
 
@@ -97,12 +107,15 @@ inline void bloodsucker(const float modificatorEffect, Item* itemThatCaused, Cha
 inline void Nanites(const float modificatorEffect, Item* itemThatCaused, Character& wounded, float& skill, Item& equipment, float& frameTIME, Character& whoDoctoring)
 {
     auto& an2 = wounded.medical.anatomy;
+
+    auto val = 0.01f + (130.f * modificatorEffect) / 10000.f;
+
     for (uint32_t i = 0; i < an2.size(); i++)
     {
         auto& limb = an2[i];
         if (limb->isRobotic() && limb->wearDamage > 0.f)
         {
-            limb->wearDamage -= 0.01f + (130.f * modificatorEffect) / 10000.f;
+            limb->wearDamage -= val;
         }
     }
 }

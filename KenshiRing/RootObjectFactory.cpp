@@ -17,7 +17,7 @@ struct secondInfoCloth
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 std::unordered_map<std::string, std::unordered_map<GameDataReference*, secondInfoCloth*> >selectSuitableClothesForSections(const std::unordered_map<GameDataReference*, secondInfoCloth>& validItemPull, const std::set<ConfigIKR::PropertySectionKR>& sortSectionsType, const RaceData* race);
-void fillSections(lektor<GameData*>& lekGearOutput, std::unordered_map<std::string, std::unordered_map<GameDataReference*, secondInfoCloth*> >& clothesForAllSection, const std::set<ConfigIKR::PropertySectionKR>& sortSectionsType);
+void fillSections(lektor<GameData*>& lekGearOutput, const std::unordered_map<std::string, std::unordered_map<GameDataReference*, secondInfoCloth*> >& clothesForAllSection, const std::set<ConfigIKR::PropertySectionKR>& sortSectionsType);
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -106,7 +106,7 @@ void chooseMyClothingHook(lektor<GameData*>& gear, GameData* dataList, const std
 
 void overriddenChooseClothingItemFromList(lektor<GameData*>& lekGearOutput, GameData* dataList, const std::string& listName, const RaceData* race, AttachSlot attachSlot)
 {
-    KR_DEBUG_LOG_L4("Call - overriddenChooseClothingItemFromList");
+    KR_DEBUG_LOG_L4("\t\t\t\t\t\t\t\t\t\t\t\tCall - overriddenChooseClothingItemFromList");
 
     // оптимизация (?)
     if (dataList == nullptr) 
@@ -158,22 +158,18 @@ void overriddenChooseClothingItemFromList(lektor<GameData*>& lekGearOutput, Game
         KR_DEBUG_LOG_L4("Exit - overriddenChooseClothingItemFromList - validItemPull.empty()");
         return;
     }
-    KR_LOGD_CHECKPOINT;
-
     // секции типа attachSlot размещены (должны быть)  в порядке возрастания размера
     const auto& sortSectionsType = KRI_GET_INSTANCE.getAllSectionForAttach(attachSlot);
-    KR_LOGD_CHECKPOINT;
 
     // шаг 1. выбираем всю подходящую одежду для каждой секций 
     // секции sortSectionsType должны быть гарантированно размещены в порядке возрастания размера,
     // для того чтобы одежда гарантированно подобралась для всех секций, с которых и начнется заполнение
     auto clothesForAllSection = selectSuitableClothesForSections(validItemPull, sortSectionsType, race);
-    KR_LOGD_CHECKPOINT;
 
     // шаг 2 заполнить секции подходящими предметами
     fillSections(lekGearOutput, clothesForAllSection, sortSectionsType);
 
-    KR_DEBUG_LOG_L4("Exit - overriddenChooseClothingItemFromList");
+    KR_DEBUG_LOG_L4("\t\t\t\t\t\t\t\t\t\t\t\tExit - overriddenChooseClothingItemFromList");
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -181,7 +177,7 @@ void overriddenChooseClothingItemFromList(lektor<GameData*>& lekGearOutput, Game
 std::unordered_map<std::string, std::unordered_map<GameDataReference*, secondInfoCloth*> >selectSuitableClothesForSections( const std::unordered_map<GameDataReference*, secondInfoCloth>& validItemPull, const std::set<ConfigIKR::PropertySectionKR>& sortSectionsType, const RaceData* race)
 {
     // оптимизация (?)
-    KR_DEBUG_LOG_L4("Call - selectSuitableClothesForSections");
+    KR_DEBUG_LOG_L4("\t\t\t\t\t\t\t\t\t\t\t\tCall - selectSuitableClothesForSections");
 
 
     std::unordered_map<std::string, std::unordered_map<GameDataReference*, secondInfoCloth*> > clothesForAllSection;
@@ -203,54 +199,58 @@ std::unordered_map<std::string, std::unordered_map<GameDataReference*, secondInf
             auto& racesListExclude = currentItem->ptr->objectReferences["races exclude"];
             if (racesListExclude.size() && race && race->data)
             {
+                bool raceBanned = false;
                 for (auto itRace = racesListExclude.begin(); itRace != racesListExclude.end(); ++itRace)
                 {
                     GameDataReference& currentItemRacaExclude = *itRace;
                     if (currentItemRacaExclude.ptr->stringID == race->data->stringID)
                     {
-                        continue; // -> next - мы находимся в списке запрещенных рас
+                        raceBanned = true; // мы находимся в списке запрещенных рас
+                        break;
                     }
                 }
+                if (raceBanned) // предмет запрещен для нас
+                {
+                    continue;
+                }
             }
-            auto& racesList = currentItem->ptr->objectReferences["races"];
+
+            auto& racesList = currentItem->ptr->objectReferences["races"]; // предмет имеет только разрешенные рассы
+
+            bool raceAllowed = true;
+
             if (racesList.size() && race && race->data)
             {
+                raceAllowed = false;
                 for (auto itRace = racesList.begin(); itRace != racesList.end(); ++itRace)
                 {
                     GameDataReference& currentItemRaca = *itRace;
                     if (currentItemRaca.ptr->stringID == race->data->stringID)
                     {
-                        if (currentItem->ptr->idata["inventory footprint width"] <= sizeSection.m_width && currentItem->ptr->idata["inventory footprint height"] <= sizeSection.m_height)
-                        {
-                            clothesForAllSection[nameSection][currentItem] = infoItem;
-                            // мы находимся в списке разрешенных рас и можем иметь этот предмет
-                        }
+                        raceAllowed = true; // мы находимся в списке разрешенных рас и можем иметь этот предмет
+                        break;
                     }
                 }
             }
-            else
+            if (raceAllowed && currentItem->ptr->idata["inventory footprint width"] <= sizeSection.m_width && currentItem->ptr->idata["inventory footprint height"] <= sizeSection.m_height)
             {
-                if (currentItem->ptr->idata["inventory footprint width"] <= sizeSection.m_width && currentItem->ptr->idata["inventory footprint height"] <= sizeSection.m_height)
-                {
-                    KR_DEBUG_LOG_L4("\t\t\t\t+  " + currentItem->ptr->name + " | Quantity: " + SuppKR::toStringV100(infoItem->m_quantity) + " | Size: " + SuppKR::toStringV100(infoItem->m_size.m_width) + "/" + SuppKR::toStringV100(infoItem->m_size.m_height));
-                    clothesForAllSection[nameSection][currentItem] = infoItem;
-                }
+                KR_DEBUG_LOG_L4("\t\t\t\t+  " + currentItem->ptr->name + " | Quantity: " + SuppKR::toStringV100(infoItem->m_quantity) + " | Size: " + SuppKR::toStringV100(infoItem->m_size.m_width) + "/" + SuppKR::toStringV100(infoItem->m_size.m_height));
+                clothesForAllSection[nameSection][currentItem] = infoItem;
             }
         }
     }
-
-    KR_DEBUG_LOG_L4("Exit - selectSuitableClothesForSections");
+    KR_DEBUG_LOG_L4("\t\t\t\t\t\t\t\t\t\t\t\tExit - selectSuitableClothesForSections");
     return clothesForAllSection;
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-void fillSections(lektor<GameData*>& lekGearOutput, std::unordered_map<std::string, std::unordered_map<GameDataReference*, secondInfoCloth*> >& clothesForAllSection, const std::set<ConfigIKR::PropertySectionKR>& sortSectionsType)
+void fillSections(lektor<GameData*>& lekGearOutput, const std::unordered_map<std::string, std::unordered_map<GameDataReference*, secondInfoCloth*> >& clothesForAllSection, const std::set<ConfigIKR::PropertySectionKR>& sortSectionsType)
 {
-    KR_DEBUG_LOG_L4("Call - fillSections");
+    KR_DEBUG_LOG_L4("\t\t\t\t\t\t\t\t\t\t\t\tCall - fillSections");
 
     // проход по секциям
-    for (std::unordered_map<std::string, std::unordered_map<GameDataReference*, secondInfoCloth*> >::iterator iterSection = clothesForAllSection.begin(); iterSection != clothesForAllSection.end(); ++iterSection)
+    for (std::unordered_map<std::string, std::unordered_map<GameDataReference*, secondInfoCloth*> >::const_iterator iterSection = clothesForAllSection.begin(); iterSection != clothesForAllSection.end(); ++iterSection)
     {
         auto& currentClothes = iterSection->second;
         auto currentSection = sortSectionsType.begin();
@@ -370,7 +370,7 @@ void fillSections(lektor<GameData*>& lekGearOutput, std::unordered_map<std::stri
         }
     }
 
-    KR_DEBUG_LOG_L4("Exit - fillSections");
+    KR_DEBUG_LOG_L4("\t\t\t\t\t\t\t\t\t\t\t\tExit - fillSections");
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
